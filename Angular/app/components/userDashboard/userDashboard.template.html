@@ -1,0 +1,61 @@
+<div layout="column" layout-align="center center" style="min-height: 500px; margin-top: 2%">
+  <div layout="row">
+    <div layout="column" flex="30">
+      <!-- 1st Card -->
+      <div class="card card-inverse">
+        <!-- The Photo -->
+        <div ng-show="$ctrl.rentable.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" ng-src="{{'http://localhost:3000/'+$ctrl.rentable.photo_path}}"></div>
+        <div ng-show="!$ctrl.rentable.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" src="../../assets/images/profile.jpg"></div>
+        <br/>
+
+        <br/>
+        <div layout="row" layout-align="center center">
+          <!-- username -->
+          <div ng-show="$ctrl.user.username" style="font-size: 26px"><strong>{{$ctrl.user.username}}</strong></div>
+        </div>
+      </div>
+    </div>
+    <div layout="column" flex="3">
+      <div class="card" style="background-color:rgba(0, 0, 0, 0); border: 0">
+        <div class="card-block">
+        </div>
+      </div>
+    </div>
+    <div layout="column" flex="70">
+
+      <!-- 2nd Card -->
+      <div class="card">
+        <div class="card-block">
+          <h3>General information</h3>
+          <br/>
+
+          <div style="font-size:16px;">
+            <!-- First Name -->
+            <div ng-show="$ctrl.user.first_name"><strong>First Name: </strong>{{$ctrl.user.first_name}}</div>
+
+            <!-- Last Name -->
+            <div ng-show="$ctrl.user.last_name"><strong>Last Name: </strong>{{$ctrl.user.last_name}}</div>
+            <div ng-show="!$ctrl.user.last_name"><strong>Last Name: </strong> N/A</div>
+
+            <!-- Birthdate -->
+            <div ng-show="$ctrl.user.birthdate"><strong>Birthdate: </strong>{{$ctrl.user.birth_date | date:'yyyy-MM-dd'}}</div>
+            <div ng-show="!$ctrl.user.birthdate"><strong>Birthdate: </strong> N/A</div>
+
+            <!-- Gender -->
+            <div ng-show="$ctrl.user.gender"><strong>Gender: </strong>{{$ctrl.user.gender | date:'yyyy-MM-dd'}}</div>
+            <div ng-show="!$ctrl.user.gender"><strong>Gender: </strong> N/A</div>
+
+            <!-- Phone Number -->
+            <div ng-show="$ctrl.user.phone_number"><strong>Phone Number: </strong>{{$ctrl.user.phone_number}}</div>
+            <div ng-show="!$ctrl.user.phone_number"><strong>Phone Number: </strong> N/A</div>
+
+            <!-- Email -->
+            <div ng-show="$ctrl.user.email"><strong>Email: </strong>{{$ctrl.user.email}}</div>
+            <div ng-show="!$ctrl.user.email"><strong>Email: </strong> N/A</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

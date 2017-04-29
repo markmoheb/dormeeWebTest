@@ -1,0 +1,1070 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Dormee",
+		"_postman_id": "307d7527-6510-2faa-c8e5-13de259a0e04",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filter&Search",
+			"description": "",
+			"item": [
+				{
+					"name": "Demo Data",
+					"request": {
+						"url": "",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "db.rentables.insert(\n[{\n\t\"rent_price\" : 2211,\n\t\"district\" : \"tagamoaa\",\n\t\"size\" : 154,\n\t\"address\" : \"234 Remsen Avenue\",\n\t\"average_rating\" : 2.27\n},\n{\n\t\"rent_price\" : 3319,\n\t\"district\" : \"zamalek\",\n\t\"size\" : 128,\n\t\"address\" : \"918 Ridge Court\",\n\t\"average_rating\" : 1.96\n},\n{\n\t\"rent_price\" : 1916,\n\t\"district\" : \"tagamoaa\",\n\t\"size\" : 252,\n\t\"address\" : \"973 Perry Place\",\n\t\"average_rating\" : 1.33\n},\n{\n\t\"rent_price\" : 4566,\n\t\"district\" : \"sheraton\",\n\t\"size\" : 243,\n\t\"address\" : \"483 Woodbine Street\",\n\t\"average_rating\" : 0.26\n},\n{\n\t\"rent_price\" : 2538,\n\t\"district\" : \"maadi\",\n\t\"size\" : 183,\n\t\"address\" : \"942 Hornell Loop\",\n\t\"average_rating\" : 3.61\n},\n{\n\t\"rent_price\" : 2035,\n\t\"district\" : \"tagamoaa\",\n\t\"size\" : 290,\n\t\"address\" : \"768 Stone Avenue\",\n\t\"average_rating\" : 4.1\n}]\n);"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#6ZDMn78O",
+			"description": "As an owner, I can update the details of my advertised apartments and/or flatshares.",
+			"item": [
+				{
+					"name": "Create Owner AdTester",
+					"request": {
+						"url": "localhost:3000/owners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"updateAdTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"AdTester\",\n  \"phone_number\":\"0123456789\",\n  \"birthdate\":\"04-03-1992\",\n  \"selfie\":\"path/to/photo\",\n  \"personal_id\":\"path/to/photo\",\n  \"email\":\"updateAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login with Owner AdTester",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"updateAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Apartment",
+					"request": {
+						"url": "localhost:3000/rentables",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTU2MGZkOTRjNjIwMmI3MTlkYjNkMyIsImlhdCI6MTQ5MTQ1MTYzMCwiZXhwIjoxNDkxNDYxNzEwfQ.T58kfPu6lE5EjVb9Jkv8nqo8Z2gRCFzlojJ-IBkCKL0",
+								"description": ""
+							},
+							{
+								"key": "enctype",
+								"value": "multipart/form-dat",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"enabled": true,
+									"src": "Screenshot from 2017-04-05 00-11-42.png"
+								},
+								{
+									"key": "rentable_type",
+									"value": "Apartment",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "size",
+									"value": "200",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "address",
+									"value": "C Building",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "rent_amount",
+									"value": "1000",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Apartment",
+					"request": {
+						"url": "localhost:3000/rentables/58e5e5bd08fc516c1dcb2783",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTVlNWE1MDhmYzUxNmMxZGNiMjc4MiIsImlhdCI6MTQ5MTQ2MTc1MSwiZXhwIjoxNDkxNDcxODMxfQ.CILzlhH8OUERKHZUfhdK8FpBE2AP6t7b9wYmYQkgwrc",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"size\":5,\n\t\"address\":\"D Building\",\n\t\"rent_amount\":999\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#6g999Pa2",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Owner AdTester",
+					"request": {
+						"url": "localhost:3000/owners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"postAdTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"AdTester\",\n  \"phone_number\":\"0123456789\",\n  \"birthdate\":\"04-03-1992\",\n  \"selfie\":\"path/to/photo\",\n  \"personal_id\":\"path/to/photo\",\n  \"email\":\"postAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login with Owner AdTester",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"postAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Apartment",
+					"request": {
+						"url": "localhost:3000/rentables",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTU2MGZkOTRjNjIwMmI3MTlkYjNkMyIsImlhdCI6MTQ5MTQ1MTYzMCwiZXhwIjoxNDkxNDYxNzEwfQ.T58kfPu6lE5EjVb9Jkv8nqo8Z2gRCFzlojJ-IBkCKL0",
+								"description": ""
+							},
+							{
+								"key": "enctype",
+								"value": "multipart/form-dat",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"enabled": true,
+									"src": "Screenshot from 2017-04-05 00-11-42.png"
+								},
+								{
+									"key": "rentable_type",
+									"value": "Apartment",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "size",
+									"value": "200",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "address",
+									"value": "C Building",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "rent_amount",
+									"value": "1000",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#6tPXQXYt",
+			"description": "As an admin, I can delete ads.",
+			"item": []
+		},
+		{
+			"name": "task#72UbWMdC",
+			"description": "As a visitor, I can view the homepage so that I can browse through the ads of the apartments.",
+			"item": [
+				{
+					"name": "test getAll Rentables",
+					"request": {
+						"url": "localhost:3000/rentables/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#94QPpuuS",
+			"description": "As a visitor, I can filter out the listings according to the ratings so that I can narrow down the search.",
+			"item": [
+				{
+					"name": "test rating filter",
+					"request": {
+						"url": "localhost:3000/rentables/filter?rat=2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#A2HptW5z",
+			"description": "As a student, I can send rent requests to apartment's owner.",
+			"item": [
+				{
+					"name": "Create Owner rentRequeset Test",
+					"request": {
+						"url": "localhost:3000/owners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"updateAdTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"AdTester\",\n  \"phone_number\":\"0123456789\",\n  \"birthdate\":\"04-03-1992\",\n  \"selfie\":\"path/to/photo\",\n  \"personal_id\":\"path/to/photo\",\n  \"email\":\"updateAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login with Owner AdTester",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"updateAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Apartment",
+					"request": {
+						"url": "localhost:3000/rentables",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTU2MGZkOTRjNjIwMmI3MTlkYjNkMyIsImlhdCI6MTQ5MTQ1MTYzMCwiZXhwIjoxNDkxNDYxNzEwfQ.T58kfPu6lE5EjVb9Jkv8nqo8Z2gRCFzlojJ-IBkCKL0",
+								"description": ""
+							},
+							{
+								"key": "enctype",
+								"value": "multipart/form-dat",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"enabled": true,
+									"src": "Screenshot from 2017-04-05 00-11-42.png"
+								},
+								{
+									"key": "rentable_type",
+									"value": "Apartment",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "size",
+									"value": "200",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "address",
+									"value": "C Building",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "rent_amount",
+									"value": "1000",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Apartment",
+					"request": {
+						"url": "localhost:3000/rentables/58e5e5bd08fc516c1dcb2783",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTVlNWE1MDhmYzUxNmMxZGNiMjc4MiIsImlhdCI6MTQ5MTQ2MTc1MSwiZXhwIjoxNDkxNDcxODMxfQ.CILzlhH8OUERKHZUfhdK8FpBE2AP6t7b9wYmYQkgwrc",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"size\":5,\n\t\"address\":\"D Building\",\n\t\"rent_amount\":999\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#BJMOlLUK",
+			"description": "As a visitor, I can search for an apartment and/or a room using specific keywords.",
+			"item": [
+				{
+					"name": "test full text search",
+					"request": {
+						"url": "localhost:3000/rentables/search?str=Remsen",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#Cy58S6oe",
+			"description": "As a registered user, I can login using my previously registered email so that I can access my account.",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"url": "localhost:3000/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"loginTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"loginTest\",\n  \"phone_number\":\"0123456789\",\n  \"email\":\"loginTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login with testUser",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"loginTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#F2Q7vW8G",
+			"description": "As a visitor, I can access the specific pages of rentables so that I can view more details (excluding classified info such as: address or contact info).",
+			"item": [
+				{
+					"name": "Get Apartments as Visitor",
+					"request": {
+						"url": "localhost:3000/rentables/visitors/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#F4At6Rci",
+			"description": "As a registered user, I can add my university email or a photo of university id so that I can confirm my identity as a student.",
+			"item": [
+				{
+					"name": "Register new User",
+					"request": {
+						"url": "localhost:3000/auth/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"addStudentId\",\n  \"password\":\"1234\",\n  \"first_name\":\"Add StudentId\",\n  \"phone_number\":\"0123456789\",\n  \"email\":\"addStudentId@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login as new User",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"addStudentId@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test Upload StudentiD (success)",
+					"request": {
+						"url": "localhost:3000/users/verify/request/student/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTVhNjRmMWZiZDExMzJkYmYzNGY2MCIsImlhdCI6MTQ5MTQ0NTM2MCwiZXhwIjoxNDkxNDU1NDQwfQ.fUCTjeVRTbVcUSFIPsUyyuS77S_tUg3bkVklWphXLqA",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "university",
+									"value": "GUC",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "university_email",
+									"value": "addStudentId@guc.edu.eg",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"enabled": true,
+									"src": "Tshirt.png"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#VhzRSHQN",
+			"description": "As a visitor, I can filter out the listings according to location so that I can narrow down the search.",
+			"item": [
+				{
+					"name": "test district filter",
+					"request": {
+						"url": "localhost:3000/rentables/filter?dis=zamalek",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#ddpoJIrh",
+			"description": "As a visitor, I can view the ratings and reviews of other clients on the rentables so that I have a broader idea about the conditions of the rentables.",
+			"item": [
+				{
+					"name": "Get All Apartments",
+					"request": {
+						"url": "localhost:3000/rentables",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get specific apartment's reviews",
+					"request": {
+						"url": "localhost:3000/rentables/reviews-ratings/58e40aa6517a5ae95af02e85",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete this Apartment",
+					"request": {
+						"url": "localhost:3000/rentables/58e5e04c78cb85692bbbcd72",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTVkZmM4NzhjYjg1NjkyYmJiY2Q3MSIsImlhdCI6MTQ5MTQ2MDA1OSwiZXhwIjoxNDkxNDcwMTM5fQ.Z3o04l9EYNkWjL66Ipq4r3WvjyCNXiNWiiYfs3u98i8",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Apartment",
+					"request": {
+						"url": "localhost:3000/rentables/58e5e5bd08fc516c1dcb2783",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#eXM89GXB",
+			"description": "As a registered user, I can add favorites to my list of favorite rooms and apartments",
+			"item": [
+				{
+					"name": "add favourites to user 58dfb3efbe81cd200360ad0d",
+					"request": {
+						"url": "localhost:3000/users/favourites/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNTI0NjIsImV4cCI6MTQ5MTI2MjU0Mn0.8EcJyQ4E3hPE8AWhsSvWM-fzFsjMXRHqX2rX-dtGveQ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"favourites\":\n  \"58e40ac4517a5ae95af02e88\"\n  \n}"
+						},
+						"description": "add favourites to user 58dfb3efbe81cd200360ad0d"
+					},
+					"response": []
+				},
+				{
+					"name": "get user to verify updates",
+					"request": {
+						"url": "localhost:3000/owners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"postAdTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"AdTester\",\n  \"phone_number\":\"0123456789\",\n  \"birthdate\":\"04-03-1992\",\n  \"selfie\":\"path/to/photo\",\n  \"personal_id\":\"path/to/photo\",\n  \"email\":\"postAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#fUzoZgXZ",
+			"description": "As a visitor, I can filter out the listings according to the price so that I can narrow down the search.",
+			"item": [
+				{
+					"name": "test price filter",
+					"request": {
+						"url": "localhost:3000/rentables/filter?pl=1000&ph=2000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#hYekjQLz",
+			"description": "As a student, I can review the rentables I've rented so that I can reflect on my experience.",
+			"item": []
+		},
+		{
+			"name": "task#lBXweU6c",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Owner AdTester",
+					"request": {
+						"url": "localhost:3000/owners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"deleteAdTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"AdTester\",\n  \"phone_number\":\"0123456789\",\n  \"birthdate\":\"04-03-1992\",\n  \"selfie\":\"path/to/photo\",\n  \"personal_id\":\"path/to/photo\",\n  \"email\":\"deleteAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login with Owner AdTester",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"postAdTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Apartment",
+					"request": {
+						"url": "localhost:3000/rentables",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTVkZmM4NzhjYjg1NjkyYmJiY2Q3MSIsImlhdCI6MTQ5MTQ2MDA1OSwiZXhwIjoxNDkxNDcwMTM5fQ.Z3o04l9EYNkWjL66Ipq4r3WvjyCNXiNWiiYfs3u98i8",
+								"description": ""
+							},
+							{
+								"key": "enctype",
+								"value": "multipart/form-dat",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"enabled": true,
+									"src": "Screenshot from 2017-04-03 23-03-14.png"
+								},
+								{
+									"key": "rentable_type",
+									"value": "Apartment",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "size",
+									"value": "200",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "address",
+									"value": "C Building",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "rent_amount",
+									"value": "1000",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#wm24mh5X",
+			"description": "As a registered user, I can add my university email or a photo of university id so that I can confirm my identity as a student.",
+			"item": [
+				{
+					"name": "Register new User",
+					"request": {
+						"url": "localhost:3000/auth/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"addOwnerId\",\n  \"password\":\"1234\",\n  \"first_name\":\"Add OwnerId\",\n  \"phone_number\":\"0123456789\",\n  \"email\":\"addOwnerId@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login as new User",
+					"request": {
+						"url": "localhost:3000/auth/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\":\"1234\",\n  \"email\":\"addOwnerId@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test Upload PersonaliD (success)",
+					"request": {
+						"url": "localhost:3000/users/verify/request/student/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTVhNjRmMWZiZDExMzJkYmYzNGY2MCIsImlhdCI6MTQ5MTQ0NTM2MCwiZXhwIjoxNDkxNDU1NDQwfQ.fUCTjeVRTbVcUSFIPsUyyuS77S_tUg3bkVklWphXLqA",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "university",
+									"value": "GUC",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "university_email",
+									"value": "addStudentId@guc.edu.eg",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "img",
+									"type": "file",
+									"enabled": true,
+									"src": "Tshirt.png"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task#zVxcNc0Y",
+			"description": "As a visitor, I can register through my personal email so that I can have an account.",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"url": "localhost:3000/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicm9sZSI6ImluaXQiLCJwYXNzd29yZCI6ImluaXQiLCJ1c2VybmFtZSI6ImluaXQiLCJmYXZvdXJpdGVzIjoiaW5pdCIsInVuaXZlcnNpdHkiOiJpbml0IiwiX192IjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJ1bml2ZXJzaXR5Ijp0cnVlLCJfX3YiOnRydWUsImZhdm91cml0ZXMiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJlbWFpbCI6dHJ1ZSwidXNlcm5hbWUiOnRydWUsInJvbGUiOnRydWUsImNyZWF0ZWRfYXQiOnRydWUsInVwZGF0ZWRfYXQiOnRydWUsIl9pZCI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7InNhdmUiOltudWxsLG51bGxdLCJpc05ldyI6W251bGwsbnVsbF19LCJfZXZlbnRzQ291bnQiOjIsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7InBheW1lbnRfaW5mbyI6e30sImZhdm91cml0ZXMiOltdLCJ1bml2ZXJzaXR5IjoiR1VDIiwiX192IjowLCJwYXNzd29yZCI6IiQyYSQxMCRwSWR2c0JKSmdRczlDYzJCM2VOMVZlNWJjOVVxcHd2ZktBUlEzbmF1dXdWdGVGYzZZV0haTyIsImVtYWlsIjoibWFya20ucm9mYWlsQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmF0bWFuIiwicm9sZSI6InVzZXIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNC0wMVQxNTo0MjowNy42MzZaIiwidXBkYXRlZF9hdCI6IjIwMTctMDQtMDNUMTc6MzM6MDkuODQ1WiIsIl9pZCI6IjU4ZGZjYTRmNDJhODQ2M2UxNjdiOTA0YyJ9LCJpYXQiOjE0OTEyNDE3MTMsImV4cCI6MTQ5MTI1MTc5M30.K3gE4wtewcDPiyVPpHh8Q7QQukmBzhjr8ygK9dtWV5s",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"registerTest\",\n  \"password\":\"1234\",\n  \"first_name\":\"registerTest\",\n  \"phone_number\":\"0123456789\",\n  \"email\":\"registerTest@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

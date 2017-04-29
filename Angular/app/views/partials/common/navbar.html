@@ -1,0 +1,15 @@
+<header class="app-header navbar">
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+            <div layout="row" layout-align="center center">
+                <md-button ng-show="isAuthenticated" ng-disabled="{{!isAuthenticated}}" class="md-icon-button sidebar-toggler" aria-label="Settings">
+                    <i class="material-icons">menu</i>
+                </md-button>
+                <a class="navbar-brand" ui-sref='home'></a>
+                <div ng-if="!isAuthenticated">
+                    <logout></logout>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+</header>

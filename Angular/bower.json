@@ -1,0 +1,44 @@
+{
+  "name": "angular-seed",
+  "description": "A starter project for AngularJS",
+  "main": "app.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular/angular-seed",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "angular": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-messages": "^1.6.4",
+    "angular-material": "master",
+    "angular-breadcrumb": "latest",
+    "angular-loading-bar": "latest",
+    "oclazyload": "latest",
+    "bootstrap": "4.0",
+    "tether": "latest",
+    "html5-boilerplate": "^5.3.0",
+    "font-awesome": "^4.7.0",
+    "simple-line-icons": "latest",
+    "chart.js": "^2.3.0",
+    "angular-chart.js": "^1.0.3",
+    "moment": "momentjs#^2.18.1",
+    "angularjs-slider": "^6.1.1",
+    "angular-route": "^1.6.4",
+    "angular-ui-router": "^0.4.2",
+    "ng-file-upload": "^12.2.13",
+    "angular-jwt": "^0.1.9",
+    "ui-router.grant": "angular-ui-router-grant#^0.1.5"
+  },
+  "resolutions": {
+    "angular-ui-router": "^0.4.2"
+  }
+}

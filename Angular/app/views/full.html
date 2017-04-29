@@ -1,0 +1,15 @@
+<div ng-include="'views/partials/common/navbar.html'"></div>
+
+<div class="app-body">
+    <div ng-if="isAuthenticated">
+        <side-bar></side-bar>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+        <div class="container-fluid">
+            <ui-view></ui-view>
+        </div>
+    </main>
+</div>
+<div ng-include="'views/partials/common/footer.html'"></div>

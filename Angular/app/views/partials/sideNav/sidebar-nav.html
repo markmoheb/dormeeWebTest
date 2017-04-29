@@ -1,0 +1,8 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <div ng-if="$ctrl.isUser()" ng-include="'views/partials/sideNav/user.sidenav.html'"></div>
+        <div ng-if="$ctrl.isStudent()" ng-include="'views/partials/sideNav/student.sidenav.html'"></div>
+        <div ng-if="$ctrl.isOwner()" ng-include="'views/partials/sideNav/owner.sidenav.html'"></div>
+        <div ng-if="$ctrl.isAdmin()" ng-include="'views/partials/sideNav/admin.sidenav.html'"></div>
+    </nav>
+</div>

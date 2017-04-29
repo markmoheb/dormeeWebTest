@@ -1,0 +1,52 @@
+<md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="Apartments">
+        <div ng-repeat=" apartment in $ctrl.apartments">
+            <md-card md-theme="default" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{apartment.address}}</span>
+                        <md-button ng-href="#!/rentable/{{apartment._id}}">
+                          <font color="red">View more Details</font>
+                        </md-button>
+                        <!-- <span class="md-subhead">{{'wants to be a '+user.verifyPending}}</span> -->
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <!--  <div class="md-media-md card-media">
+                    <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg">
+                </div> -->
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.deleteApartment(apartment._id)">DELETE</md-button>
+                    <!-- <md-button ng-click="$ctrl.reject(user._id)">DELETE</md-button> -->
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-tab>
+
+    <md-tab label="Rooms">
+        <div ng-repeat=" room in $ctrl.rooms">
+            <md-card md-theme="default" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{room.address}}</span>
+                        <md-button ng-href="#!/rentable/{{room._id}}">
+                          <font color="red">View more Details</font>
+                        </md-button>
+                        <!-- <span class="md-subhead">{{'wants to be a '+user.verifyPending}}</span> -->
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <!--  <div class="md-media-md card-media">
+                    <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg">
+                </div> -->
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.deleteRoom(room._id)">DELETE</md-button>
+                    <!-- <md-button ng-click="$ctrl.reject(user._id)">DELETE</md-button> -->
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-tab>
+
+</md-tabs>

@@ -1,0 +1,47 @@
+<!-- <form ng-submit="$ctrl.search()"> -->
+
+<md-input-container md-no-float class="md-block">
+  <md-icon md-svg-src="img/icons/map-marker.svg"></md-icon>
+  <input ng-model="$ctrl.district" ng-model-options="{ debounce: 1000 }" ng-change="$ctrl.search()" placeholder="District">
+</md-input-container>
+
+<!-- <div>
+    <p>Rating</p>
+    <label>
+      <input type="radio" ng-model="$ctrl.rating" value="0" ng-change="$ctrl.search()">
+      Any
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="$ctrl.rating" value="1" ng-change="$ctrl.search()">
+      1
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="$ctrl.rating" value="2" ng-change="$ctrl.search()">
+      2
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="$ctrl.rating" value="3" ng-change="$ctrl.search()">
+      3
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="$ctrl.rating" value="4" ng-change="$ctrl.search()">
+      4
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="$ctrl.rating" value="5" ng-change="$ctrl.search()">
+      5
+    </label><br/>
+  </div> -->
+
+<div>
+  <div layout="row" layout-wrap>
+    <md-icon flex="5" md-svg-src="img/icons/currency-usd.svg"></md-icon>
+    <rzslider flex="90" ng-click="$ctrl.search()" rz-slider-model="$ctrl.slider.min" rz-slider-high="$ctrl.slider.max" rz-slider-options="$ctrl.slider.options">
+
+    </rzslider>
+    </label>
+  </div>
+
+
+  <!-- <input type="submit" value="Submit"> -->
+  <!-- </form> -->

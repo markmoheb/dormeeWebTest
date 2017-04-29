@@ -1,0 +1,180 @@
+<!--<h1>
+    RENTABLE</h1>
+
+<p>{{$ctrl.rentable.district}}</p>
+
+<p>{{$ctrl.rentable.photo_path}}</p>-->
+<div layout="column" layout-align="center center" style="min-height: 500px; margin-top: 2%">
+    <div layout="row">
+        <div layout="column" flex="30">
+            <!-- 1st Card -->
+            <div class="card card-inverse">
+                <!-- The Photo -->
+                <div ng-show="$ctrl.rentable.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" ng-src="{{$ctrl.apiUrl}}/{{rentable.photo_path}}"></div>
+                <div class="card-img-overlay">
+                    <h4 class="card-title">
+                        <div ng-show="$ctrl.rentable.address">{{$ctrl.rentable.address}}</div>
+                    </h4>
+                </div>
+                <br/>
+                <div style="margin-left: 10%">
+                    <!-- Vacant -->
+                    <div layout="row" layout-align="center">
+                        <div ng-show="$ctrl.rentable.vacant" class="black"><em style="color: #048900;">available for rent !</em></div>
+                        <div ng-show="!$ctrl.rentable.vacant" class="black"><strong style="color: #B22005;">not available</strong></div>
+                    </div>
+
+                    <!-- Price -->
+                    <div ng-show="$ctrl.rentable.rent_price">Price: &nbsp<span style="font-size:36px;">EGP {{$ctrl.rentable.rent_price}}</span>
+                    </div>
+
+                    <!-- Postdate -->
+                    <div ng-show="$ctrl.rentable.posting_date">Post date : {{$ctrl.rentable.posting_date| date:'yyyy-MM-dd'}} </div>
+                    <div ng-show="!$ctrl.rentable.posting_date">Post date : N/A </div>
+
+                    <!-- Insurance -->
+                    <div ng-show="$ctrl.rentable.insurance">Insurance: EGP {{$ctrl.rentable.insurance}}</div>
+                    <div ng-show="!$ctrl.rentable.insurance">Insurance: This information is disclosed by the owner </div>
+                    <br/>
+
+                    <!-- Summary -->
+                    <div ng-show="$ctrl.rentable.summary">Summary: <br/>
+                        <md-content flex layout-padding layout-wrap>
+                            {{$ctrl.rentable.summary}}
+                        </md-content>
+                    </div>
+
+                </div>
+                <md-button ng-href="#!/rentable/edit/{{$ctrl.rentable._id}}" > Edit Rentable </md-button>
+                <md-button ng-href="#!/owner/rentRequests/{{$ctrl.rentable._id}}" > View Rent Requests</md-button>
+            </div>
+        </div>
+        <div layout="column" flex="3">
+            <div class="card" style="background-color:rgba(0, 0, 0, 0); border: 0">
+                <div class="card-block">
+                </div>
+            </div>
+        </div>
+        <div layout="column" flex="70">
+            <!-- 2nd Card -->
+            <div class="card">
+
+                <div class="card-block">
+                    <h3>General information</h3>
+                    <br/>
+
+                    <!-- Address -->
+                    <div ng-show="$ctrl.rentable.address"> <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> <strong> Address: </strong>{{$ctrl.rentable.address}}</div>
+                    <div ng-show="!$ctrl.rentable.address"> <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> <strong> Address: </strong> This information
+                        is disclosed by the owner</div>
+                    <br/>
+
+                    <!-- Dstrict -->
+                    <div ng-show="$ctrl.rentable.district"> <i class="fa fa-building fa-2x" aria-hidden="true"></i> <strong> District: </strong> {{$ctrl.rentable.district}}</div>
+                    <br/>
+
+                    <!-- Size -->
+                    <div ng-show="$ctrl.rentable.size"> <i class="fa fa-window-maximize fa-2x" aria-hidden="true"></i> <strong> Size: </strong> {{$ctrl.rentable.size}}</div>
+                    <br/>
+
+                    <!-- Floor Level -->
+                    <div ng-show="$ctrl.rentable.floor_level"><i><img src="assets/images/amenities/stairs.png" style="size:24px; height:28;"></i> <strong> Floor Level: </strong>                        {{$ctrl.rentable.floor_level}}
+                    </div>
+                    <div ng-show="!$ctrl.rentable.floor_level"><i><img src="assets/images/amenities/stairs.png" style="size:24px; height:28;"></i> <strong> Floor Level: </strong>                        This information is disclosed by the owner</div>
+                    <br/>
+
+                    <!-- Rooms -->
+                    <div ng-show="$ctrl.rentable.number_of_rooms"><i class="fa fa-window-restore fa-2x" aria-hidden="true"></i> <strong> Number of rooms: </strong> {{$ctrl.rentable.number_of_rooms}}</div>
+                    <div ng-show="!$ctrl.rentable.number_of_rooms"><i class="fa fa-window-restore fa-2x" aria-hidden="true"></i> <strong> Number of rooms: </strong>This
+                        information is disclosed by the owner</div>
+                    <br/>
+
+                    <!-- Bathrooms -->
+                    <div ng-show="$ctrl.rentable.number_of_bathrooms"><i class="fa fa-bath fa-2x" aria-hidden="true"></i> <strong> Number of bathrooms: </strong> {{$ctrl.rentable.number_of_bathrooms}}</div>
+                    <div ng-show="!$ctrl.rentable.number_of_bathrooms"><i class="fa fa-bath fa-2x" aria-hidden="true"></i> <strong> Number of bathrooms: </strong>This information
+                        is disclosed by the owner</div>
+                    <br/>
+
+                    <md-divider md-inset></md-divider>
+                    <br/>
+                    <!-- Amenities -->
+                    <h3>Amenities</h3>
+                    <br/>
+
+                    <div layout="row">
+                        <!-- First Column -->
+                        <div layout="column" flex>
+
+                            <!-- furnished -->
+                            <div ng-show="$ctrl.rentable.amenities.furnished">
+                                <i><img src="assets/images/amenities/furniture.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> is furnished
+                            </div>
+
+                            <!-- furnished -->
+                            <div ng-show="$ctrl.rentable.amenities.TV">
+                                <i><img src="assets/images/amenities/tv.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has a TV
+                            </div>
+
+                            <!-- air_conditioning -->
+                            <div ng-show="$ctrl.rentable.amenities.air_conditioning">
+                                <i><img src="assets/images/amenities/ac.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has air conditioning
+                            </div>
+
+                            <!-- cooker -->
+                            <div ng-show="$ctrl.rentable.amenities.cooker">
+                                <i><img src="assets/images/amenities/cooker.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has a cooker
+                            </div>
+
+                            <!-- heater -->
+                            <div ng-show="$ctrl.rentable.amenities.heater">
+                                <i><img src="assets/images/amenities/heater.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has a heater
+                            </div>
+                        </div>
+
+                        <!-- Second Column -->
+                        <div layout="column" flex>
+
+                            <!-- washer -->
+                            <div ng-show="$ctrl.rentable.amenities.washer">
+                                <i><img src="assets/images/amenities/washer.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has a washer
+                            </div>
+
+                            <!-- internet -->
+                            <div ng-show="$ctrl.rentable.amenities.internet">
+                                <i><img src="assets/images/amenities/wifi.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has internet
+                            </div>
+
+                            <!-- landline -->
+                            <div ng-show="$ctrl.rentable.amenities.landline">
+                                <i><img src="assets/images/amenities/landline.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> has a landline
+                            </div>
+
+                            <!-- parking -->
+                            <div ng-show="$ctrl.rentable.amenities.parking">
+                                <i><img src="assets/images/amenities/parking.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> parking available
+                            </div>
+
+                            <!-- elevator -->
+                            <div ng-show="$ctrl.rentable.amenities.parking">
+                                <i><img src="assets/images/amenities/elevator.png" style="size:24px; height:30;"></i>
+                                <i class="material-icons" style="color:#00ff00;">done</i> elevator available
+                            </div>
+                        </div>
+
+                        <!--<div ng-show="$ctrl.rentable.rent_info">{{$ctrl.rentable.rent_info}}</div>
+                    <div ng-show="$ctrl.rentable.owner">{{$ctrl.rentable.owner}}</div>
+                    <div ng-show="$ctrl.rentable.rent_price">{{$ctrl.rentable.rent_price}}</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

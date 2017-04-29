@@ -1,0 +1,147 @@
+
+<div layout="column" ng-cloak>
+    <div class="md-toast-content">
+        <md-toast></md-toast>
+    </div>
+
+    <div class="md-toast-content">
+        <md-toast></md-toast>
+    </div>
+
+    <md-content layout-padding class="form">
+        <form name="rentableForm" ng-submit="$ctrl.uploadFile()">
+
+            <div layout="row" layout-align="end center">
+                <md-input-container flex>
+                    <label>Rentable Type</label>
+                    <md-select name="rentable_type" ng-model="$ctrl.rentable_type" required>
+                        <md-option value="Apartment">Apartment</md-option>
+                        <md-option value="Room">Room</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <input class="ng-hide" name="photo" id="input-file-id" type="file" accept="image/*" file-model="$ctrl.photo" />
+                <label for="input-file-id" class="md-icon-button" aria-label="Favorite">
+                    <md-icon md-svg-icon="assets/images/icons/insert_photo.svg"></md-icon>
+                </label>
+            </div>
+
+            <md-input-container class="md-block">
+                <label>Address</label>
+                <input required name="address" ng-model="$ctrl.address">
+                <div ng-messages="rentableForm.address.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>District</label>
+                <input required name="district" ng-model="$ctrl.district">
+                <div ng-messages="rentableForm.district.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Size</label>
+                <input required type="number" step="any" name="size" ng-model="$ctrl.size" min="5" max="3000" />
+
+                <div ng-messages="rentableForm.size.$error">
+                    <div ng-message="required">This is required.</div>
+
+                    <div ng-message="min">
+                        {{rentableForm.size.$viewValue}}? No one could fit in there!
+                    </div>
+
+                    <div ng-message="max">
+                        {{rentableForm.size.$viewValue}}? The size should be at most 3000 m².
+                    </div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Rent</label>
+                <input required type="number" step="any" name="rent" ng-model="$ctrl.rent_price" />
+
+                <div ng-messages="rentableForm.rent.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Floor Level</label>
+                <input type="number" step="any" name="floor_level" ng-model="$ctrl.floor_level" min="0" />
+
+                <div ng-messages="rentableForm.floor_level.$error">
+                    <div ng-message="min">The floor level can't be negative.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Insurance</label>
+                <input type="number" step="any" name="insurance" ng-model="$ctrl.insurance" min="0" />
+
+                <div ng-messages="rentableForm.insurance.$error">
+                    <div ng-message="min">The insurance can't be negative.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" ng-show="$ctrl.rentable_type==='Apartment'">
+                <label>Number of Rooms</label>
+                <input type="number" step="any" name="number_of_rooms" ng-model="$ctrl.number_of_rooms" min="0" />
+
+                <div ng-messages="rentableForm.number_of_rooms.$error">
+                    <div ng-message="min">The number of rooms can't be negative.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Number of Bathrooms</label>
+                <input type="number" step="any" name="number_of_bathrooms" ng-model="$ctrl.number_of_bathrooms" min="0" />
+
+                <div ng-messages="rentableForm.number_of_bathrooms.$error">
+                    <div ng-message="min">The number of bathrooms can't be negative.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Summary</label>
+                <textarea md-maxlength="100" name="summary" ng-model="$ctrl.summary"></textarea>
+                <div ng-messages="rentableForm.summary.$error">
+                    <div ng-message="md-maxlength">The summary must be less than 100 characters long.</div>
+                </div>
+            </md-input-container>
+
+            <div layout="row" layout-wrap>
+                <div flex="100" layout="column">
+                    <div>
+                        <fieldset class="demo-fieldset">
+                            <legend class="demo-legend">
+                                <font color="red">Amenities</font>
+                            </legend>
+                            <div layout="row" layout-wrap flex>
+                                <div flex-xs flex="50">
+                                    <md-checkbox aria-label="Select All" ng-checked="$ctrl.isChecked()" md-indeterminate="$ctrl.isIndeterminate()" ng-click="$ctrl.toggleAll()">
+                                        <span ng-if="$ctrl.isChecked()">Un-</span>Select All
+                                    </md-checkbox>
+                                </div>
+                                <div class='md-padding' layout="row" layout-wrap>
+                                    <div class="demo-select-all-checkboxes" flex="50" ng-repeat="item in $ctrl.items">
+                                        <md-checkbox ng-checked="$ctrl.exists(item, $ctrl.selected)" ng-click="$ctrl.toggle(item, $ctrl.selected)">
+                                            {{ item }}
+                                        </md-checkbox>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+
+            <md-button type="submit" class="md-primary" ng-disabled="rentableForm.$invalid">Submit</md-button>
+
+        </form>
+    </md-content>
+
+</div>

@@ -1,0 +1,39 @@
+<dormee-header></dormee-header>
+
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+</md-sidenav>
+
+<div ng-init='$ctrl.onInit()'>
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">My Information</span>
+                        <!-- <span class="md-subhead">Large</span> -->
+                        <span class="md-subhead"> {{ 'First name: ' + $ctrl.user.first_name }} </span>
+                        <span class="md-subhead"> {{ 'Username: ' + $ctrl.user.username }} </span>
+                        <span class="md-subhead"> {{ 'Email: ' + $ctrl.user.email }} </span>
+                        <span class="md-subhead"> {{ 'Phone number: ' + $ctrl.user.phone_number }} </span>
+
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media"></div>
+                        <!-- <img src="img/profile_female.jpg"> </img> -->
+                        <!-- <md-icon md-svg-icon="img/icons/ic_face_black_48px.svg"></md-icon> -->
+                        <!-- <i class="material-icons">face</i> -->
+                        <!-- <i class="fa fa-user fa-5x" aria-hidden="true"></i> -->
+                    </md-card-title-media>
+                </md-card-title>
+
+
+            </md-card>
+
+        </div>
+
+    </md-content>
+
+
+
+</div>

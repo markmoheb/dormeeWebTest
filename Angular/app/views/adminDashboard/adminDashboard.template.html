@@ -1,0 +1,71 @@
+<dormee-header></dormee-header>
+
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+</md-sidenav>
+
+<div class="app-body app-body--dark" autoscroll="false">
+    <div class="app-banner banner--small banner--students">
+        <div class="banner__wrapper fixed-width" layout="row">
+            <h1 class="banner__title" transclude-receive="page-title">
+                <span>Admin Dashboard</span>
+            </h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="fixed-width dashboard hero__card proposal-summary-page layout-column" layout="column">
+    <div layout-gt-xs="row" class="layout-gt-xs-row">
+        <md-card class="dashboard__card dashboard__card--summary hero__card md-soc-theme flex-gt-xs-60" flex-gt-xs="60">
+            <div ng-if="::(!studentProposalSummary.studentRejected())">
+                <h2 class="md-title">Hi Mark</h2>
+                <!---->
+                <!---->
+                <p ng-if="app.program.features.projects_can_be_accepted">
+                    Organizations are currently selecting which proposals to turn into projects for GSoC 2017. The results will be announced
+                    on May 4, 2017.
+                </p>
+                <!---->
+                <ul>
+                    <li>
+                        <hex-heading heading-text="Submit your Proof of Enrollment" complete="
+							studentProposalSummary.StudentsForms.isCompleted(
+								studentProposalSummary.secondEnrollmentForm
+							)
+							" complete-tick="false" hex-text="1" vertical-centering="true">
+                            <div layout="row" class="hex-header layout-row layout-align-start-center" layout-align="start center">
+                                <div class="hex-header__hex hex-header__hex--completed" context="$parent" compile-bind-html="complete &amp;&amp; completeTick ? completeHtml : hexTextHtml"
+                                    ng-class="{
+			'hex-header__hex--completed': complete,
+			'hex-header__hex--highlighted': highlighted
+		}"><span>1</span></div>
+                                <div flex="" class="flex">
+                                    <h2 class="hex-header__title" context="$parent" compile-bind-html="headingTextHtml"><span>Submit your Proof of Enrollment</span></h2>
+                                    <div class="hex-header__subtitle" context="$parent" compile-bind-html="subHeadingTextHtml"></div>
+                                </div>
+                            </div>
+                        </hex-heading>
+                    </li>
+                    <li>
+                        <hex-heading heading-text="Write and submit your proposal(s)" complete="studentProposalSummary.isOneProposalCompleted" complete-tick="false"
+                            hex-text="2" vertical-centering="true">
+                            <div layout="row" class="hex-header layout-row layout-align-start-center" layout-align="start center">
+                                <div class="hex-header__hex hex-header__hex--completed" context="$parent" compile-bind-html="complete &amp;&amp; completeTick ? completeHtml : hexTextHtml"
+                                    ng-class="{
+			'hex-header__hex--completed': complete,
+			'hex-header__hex--highlighted': highlighted
+		}"><span>2</span></div>
+                                <div flex="" class="flex">
+                                    <h2 class="hex-header__title" context="$parent" compile-bind-html="headingTextHtml"><span>Write and submit your proposal(s)</span></h2>
+                                    <div class="hex-header__subtitle" context="$parent" compile-bind-html="subHeadingTextHtml"></div>
+                                </div>
+                            </div>
+                        </hex-heading>
+                    </li>
+                </ul>
+            </div>
+            <!---->
+            <!---->
+        </md-card>
+    </div>
+</div>

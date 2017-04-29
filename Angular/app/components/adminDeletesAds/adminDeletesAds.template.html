@@ -1,0 +1,48 @@
+<br/>
+<h1>Delete Ads</h1>
+<md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="Apartments">
+        <div layout="column" flex="60">
+            <div ng-repeat=" apartment in $ctrl.apartments">
+                <md-card md-theme="default" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{apartment.address}}</span>
+
+                        </md-card-title-text>
+                        <md-card-title-media>
+
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" ng-click="$ctrl.adminDeleteApartment(apartment._id)">DELETE</md-button>
+
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+    </md-tab>
+
+    <md-tab label="Rooms">
+        <div layout="column" flex="60">
+            <div ng-repeat=" room in $ctrl.rooms">
+                <md-card md-theme="default" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{room.address}}</span>
+
+                        </md-card-title-text>
+                        <md-card-title-media>
+
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" ng-click="$ctrl.adminDeleteRoom(room._id)">DELETE</md-button>
+
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+    </md-tab>
+
+</md-tabs>

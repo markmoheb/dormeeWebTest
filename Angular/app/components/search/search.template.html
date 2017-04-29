@@ -1,0 +1,4 @@
+<md-input-container md-no-float class="md-block">
+    <md-icon md-svg-src="img/icons/magnify.svg"></md-icon>
+    <input ng-model="$ctrl.query" ng-model-options="{ debounce: 1000 }" ng-change="$ctrl.search()" placeholder="Search">
+</md-input-container>

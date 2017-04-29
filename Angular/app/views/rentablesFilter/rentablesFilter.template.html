@@ -1,0 +1,130 @@
+
+<md-input-container md-no-float class="md-block">
+    <md-icon md-svg-src="img/icons/map-marker.svg"></md-icon>
+    <input ng-model="$ctrl.district" ng-model-options="{ debounce: 1000 }" ng-change="$ctrl.search()" placeholder="District">
+</md-input-container>
+
+<div layout="row" layout-wrap>
+    <md-icon flex="5" md-svg-src="img/icons/currency-usd.svg"></md-icon>
+    <rzslider flex="90" ng-click="$ctrl.search()" rz-slider-model="$ctrl.slider.min" rz-slider-high="$ctrl.slider.max" rz-slider-options="$ctrl.slider.options">
+
+    </rzslider>
+</div>
+
+<div ng-cloak>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Apartments">
+            <div layout="row" layout-wrap>
+
+                <md-card class="card" ng-repeat="apartment in $ctrl.apartments" flex="30">
+                    <div class="md-media-xl card-media"></div>
+
+                    <div ng-show="apartment.photo_path">
+                        <img ng-src="{{$ctrl.apiUrl}}/{{apartment.photo_path}}" class="md-card-image" alt="photo unavailable" style="width:100%">
+                    </div>
+
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ apartment.district }}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button ng-href="#!/rentable/{{apartment._id}}">
+                            <font color="red">View more Details</font>
+                        </md-button>
+
+                    </md-card-actions>
+                    <md-card-content>
+                        <p>{{ apartment.summary }}</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-tab>
+
+        <md-tab label="Rooms">
+            <div class='md-padding' layout="row" layout-wrap>
+
+                <md-card class="card" ng-repeat="room in $ctrl.rooms" flex="30">
+                    <div ng-show="room.photo_path">
+                        <img ng-src="{{$ctrl.apiUrl}}/{{apartment.photo_path}}" class="md-card-image" alt="photo unavailable" style="width:100%">
+                    </div>
+
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ room.district }}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button ng-href="#!/rentable/{{room._id}}">
+                            <font color="red">View more Details</font>
+                        </md-button>
+
+                    </md-card-actions>
+                    <md-card-content>
+                        <p>{{ room.summary }}</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-tab>
+    </md-tabs>
+</div>
+
+<!--<div ng-cloak>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Apartments">
+            <div layout="row" layout-wrap>
+
+                <md-card class="card" ng-repeat="apartment in $ctrl.apartments" flex="30">
+                    <div class="md-media-xl card-media"></div>
+
+                    <div ng-show="apartment.photo_path">
+                        <img ng-src="http://localhost:3000/{{apartment.photo_path}}" class="md-card-image" alt="Apartment" style="width:100%">
+                    </div>
+                    <div ng-show="!apartment.photo_path"> photo unavailable</div>
+
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ apartment.district }}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button ng-href="#!/rentable/{{apartment._id}}">
+                            <font color="red">View more Details</font>
+                        </md-button>
+
+                    </md-card-actions>
+                    <md-card-content>
+                        <p>{{ apartment.summary }}</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-tab>
+
+        <md-tab label="Rooms">
+            <div class='md-padding' layout="row" layout-wrap>
+
+                <md-card class="card" ng-repeat="room in $ctrl.rooms" flex="30">
+                    <div ng-show="room.photo_path">
+                        <img ng-src="http://localhost:3000/{{room.photo_path}}" class="md-card-image" alt="Room" style="width:100%">
+                    </div>
+                    <div ng-show="!apartment.photo_path"> photo unavailable</div>
+
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ room.district }}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button ng-href="#!/rentable/{{room._id}}">
+                            <font color="red">View more Details</font>
+                        </md-button>
+
+                    </md-card-actions>
+                    <md-card-content>
+                        <p>{{ room.summary }}</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-tab>
+    </md-tabs>
+</div>-->

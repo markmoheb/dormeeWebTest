@@ -1,0 +1,27 @@
+<div class="card" flex="70" style="margin-top: 3%">
+    <div class="card-block">
+        please fill this form to being the verification process
+        <form name="$ctrl.verifyStudent">
+            <md-input-container class="md-block">
+                <label>University</label>
+                <input required name="university" ng-model="university" />
+
+                <div ng-messages="$ctrl.verifyStudent.university.$error" role="alert">
+                    <div ng-message="required">Please enter your university name</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>University Email</label>
+                <input required type="email" name="universityEmail" ng-model="universityEmail" ng-pattern="/^.+@.+\..+$/" />
+
+                <div ng-messages="$ctrl.verifyStudent.universityEmail.$error" md-auto-hide="false">
+                    <div ng-message-exp="['required','pattern']">Please enter a valid university email</div>
+                </div>
+            </md-input-container>
+            <div layout="row" layout-align="center center">
+                <label ng-disabled="$ctrl.verifyStudent.$invalid" ngf-select="$ctrl.upload($file)" class="md-button md-raised md-primary">upload university id</label>
+            </div>
+        </form>
+    </div>
+</div>

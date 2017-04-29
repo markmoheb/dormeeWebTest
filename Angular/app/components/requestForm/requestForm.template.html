@@ -1,0 +1,34 @@
+<div flex="80">
+    <br/>
+    <h1>Rent Request Form</h1>
+    <br/>
+
+    <div class="card">
+        <div class="card-block">
+            <form name="$ctrl.requestForm">
+
+                <md-input-container class="md-block" style="width: 90%">
+                    <label>Duration in Months</label>
+                    <input required name="duration" ng-model="duration" type="number" min="1" max="12" />
+                    <div ng-messages="$ctrl.requestForm.duration.$error" role="alert" md-auto-hide="true">
+                        <div ng-message-exp="['required','min','max']">Please enter a valid duration between 1 and 12</div>
+                    </div>
+                </md-input-container>
+
+
+                <md-input-container class="md-block" style="width: 100%;">
+                    <label>Start Date</label>
+                    <md-datepicker ng-model="$ctrl.myDate" required name="date" md-open-on-focus required min="{{$ctrl.currentDate }}"></md-datepicker>
+                    <div ng-messages="$ctrl.requestForm.date.$error" role="alert" md-auto-hide="true">
+                        <div ng-message="min">Start Date should not be less than current date</div>
+                    </div>
+                </md-input-container>
+                
+                <md-card-actions layout="row" layout-align="center center">
+                    <md-button class="md-raised md-primary" ng-disabled="$ctrl.requestForm.$invalid" ng-click="$ctrl.request()">Send Request</md-button>
+                </md-card-actions>
+            </form>
+        </div>
+
+    </div>
+</div>

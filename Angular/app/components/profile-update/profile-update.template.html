@@ -1,0 +1,122 @@
+<div class="card" flex="70" style="margin-top: 3%">
+    <div class="card-block">
+
+        <form name="$ctrl.profileUpdate" ng-submit="$ctrl.update()" ng-init="$ctrl.getUser()">
+            <md-content class="md-no-momentum">
+                <div layout="row" layout-wrap>
+
+                    <md-input-container flex class="md-icon-float md-block">
+                        <md-icon md-svg-src="img/icons/ic_person_black_24px.svg"></md-icon>
+
+                        <label>First name</label>
+                        <input required name="firstName" ng-model="$ctrl.user.first_name">
+                        <div ng-messages="$ctrl.profileUpdate.firstName.$error" md-auto-hide="false">
+                            <div ng-message="required">First name is required.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex class="md-icon-float md-block">
+                        <label>Last name</label>
+                        <input required name="lastName" ng-model="$ctrl.user.last_name">
+                        <div ng-messages="$ctrl.profileUpdate.lastName.$error" md-auto-hide="false">
+                            <div ng-message="required">Last name is required.</div>
+                        </div>
+                    </md-input-container>
+
+                </div>
+
+                <div layout="row" layout-wrap>
+
+                    <md-input-container flex class="md-icon-float md-block">
+                        <label>Email</label>
+                        <md-icon md-svg-src="img/icons/ic_email_black_24px.svg"></md-icon>
+                        <input required name="email" type="email" ng-model="$ctrl.user.email" ng-change="$ctrl.changeEmail()" minlength="10" maxlength="100"
+                            ng-pattern="/^.+@.+\..+$/" />
+
+                        <div ng-messages="$ctrl.profileUpdate.email.$error" ng-messages-multiple md-auto-hide="false" role="alert">
+
+                            <div ng-if="$ctrl.isEmailTaken">
+                                <div ng-message="$error.validationError"></div>
+                                {{$ctrl.error.email}}
+                            </div>
+
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                Your email must be between 10 and 100 characters long and look like an e-mail address.
+                            </div>
+
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex class="md-icon-float md-block">
+                        <label>Username</label>
+
+                        <input required name="username" type="text" ng-model="$ctrl.user.username" ng-change="$ctrl.changeUsername()" />
+
+                        <div ng-messages="$ctrl.profileUpdate.username.$error" ng-messages-multiple md-auto-hide="false" role="alert">
+                            <div ng-message="required">
+                                Username is required.
+                            </div>
+                            <div ng-if="$ctrl.isUserNameTaken">
+                                <div ng-message="$error.validationError"> </div>
+                                {{$ctrl.error.username}}
+                            </div>
+                        </div>
+                        <!-- <div ng-show="$ctrl.profileUpdate.username.$error" md-auto-hide="true" role="alert">
+                  {{$ctrl.error.username}} </div> -->
+                    </md-input-container>
+                </div>
+
+                <!-- <md-input-container class="md-icon-float md-block">
+          <label>Password</label>
+          <md-icon md-svg-src="img/icons/lock.svg"></md-icon>
+          <input type="password" required name="password" ng-model="$ctrl.user.password" />
+          <div ng-messages="$ctrl.profileUpdate.password.$error">
+              <div ng-message="required">Password is required.</div>
+          </div>
+      </md-input-container> -->
+
+
+                <md-input-container class="md-icon-float md-block">
+                    <label>Phone number</label>
+                    <md-icon md-svg-src="img/icons/ic_phone_black_24px.svg"></md-icon>
+                    <input required name="phoneNumber" ng-model="$ctrl.user.phone_number" ng-pattern="/^(01)[0-9]{9}/" />
+                    <div ng-messages="$ctrl.profileUpdate.phoneNumber.$error">
+                        <div ng-message="pattern">01######### Please enter a valid mobile number.</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-block">
+                    <!-- <div layout="column">
+
+                <label>Gender: <label class="radioValue">{{ $ctrl.user.gender }}</label> </label>
+            </div> -->
+                    <md-radio-group ng-model="$ctrl.user.gender">
+                        <p>Gender: <span class="radioValue">{{ $ctrl.user.gender }}</span> </p>
+
+                        <div layout="row">
+                            <md-radio-button flex="50" value="male"> <i class="fa fa-mars" aria-hidden="true"></i>
+                                <class="md-primary" ng-if="$ctrl.user.gender === 'male'">
+                            </md-radio-button>
+                            <md-radio-button flex="50" value="female"> <i class="fa fa-venus" aria-hidden="true"></i>
+                                <class="md-primary" ng-if="$ctrl.user.gender === 'female'">
+                            </md-radio-button>
+                        </div>
+                    </md-radio-group>
+
+                </md-input-container>
+
+                <!-- Birthdate -->
+                <md-input-container>
+                    <label>Birthdate</label>
+                    <md-datepicker ng-model="$ctrl.date"></md-datepicker>
+                </md-input-container>
+
+                <div layout="row" layout-align="center center" style="margin-bottom: 2%">
+                    <md-button class="md-raised md-primary"ng-disabled="$ctrl.profileUpdate.$invalid" ng-valid type="submit">UPDATE PROFILE</md-button>
+                </div>
+
+            </md-content>
+        </form>
+    </div>
+</div>
+

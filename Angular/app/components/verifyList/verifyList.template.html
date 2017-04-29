@@ -1,0 +1,26 @@
+<!--<div layout="column" layout-align="center center" style="min-height: 500px; margin-top: 2%">-->
+<div layout="column" flex="60">
+    <br/>
+    <h1>Verify Users</h1>
+    <div class="card-block">
+        <div ng-repeat=" user in $ctrl.list">
+            <md-card md-theme="default" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{user.first_name +' '+ user.last_name}}</span>
+                        <span class="md-subhead">{{'wants to be a '+user.verifyPending}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media">
+                            <img src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg">
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="$ctrl.reject(user._id)">Reject</md-button>
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.accept(user._id)">Accept</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</div>

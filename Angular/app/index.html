@@ -1,0 +1,94 @@
+<html ng-app="dormeeApp">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="bower_components/angularjs-slider/dist/rzslider.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700,500,400,300,100" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel='stylesheet' href='bower_components/angular-loading-bar/src/loading-bar.css' type='text/css' media='all' />
+
+    <!-- Main styles for this application -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--<link rel="stylesheet" href="assets/css/app.css">-->
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+</head>
+
+<body class="app header-fixed {{isAuthenticated?'sidebar-fixed':''}} footer-fixed animated fadeIn">
+    <div ng-include="'views/full.html'"></div>
+
+    <!-- Template Dependencies -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Dependencies -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src='bower_components/ng-file-upload/ng-file-upload.min.js'></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+    <script src="bower_components/ui-router.grant/dist/angular-ui-router-grant.min.js"></script>
+
+    <!-- Template plugins -->
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+
+    <!-- Load environment variables -->
+    <script src="env.js"></script>
+
+    <!-- AngularJS App scripts -->
+    <script src="app.js"></script>
+    <script src="assets/js/directives.js"></script>
+
+    <!--Stripe-->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <!--Components-->
+    <script src="components/verifyList/verifyList.component.js"></script>
+    <script src="components/verifyRequestOwner/verifyOwner.component.js"></script>
+    <script src="components/verifyRequestStudent/verifyStudent.component.js"></script>
+    <script src="components/rentables/rentables.component.js"></script>
+    <script src="components/rentable/rentable.component.js"></script>
+    <script src="components/create-rentable/create-rentable.component.js"></script>
+    <script src="components/search-filter/search-filter.component.js"></script>
+    <script src="components/profile-update/profile-update.component.js"></script>
+    <script src="components/payment-info/payment-info.component.js"></script>
+    <script src="components/search/search.component.js"></script>
+    <script src="components/register/register.component.js"></script>
+    <script src="components/login/login.component.js"></script>
+    <script src="components/update-rentable/update-rentable.component.js"></script>
+    <script src="components/getOwnerRentables/getOwnerRentables.component.js"></script>
+    <script src="components/adminDeletesAds/adminDeletesAds.component.js"></script>
+    <script src="components/adminVerifiesAds/adminVerifiesAds.component.js"></script>
+
+    <script src="components/getOwnerRentRequests/getOwnerRentRequests.component.js"></script>
+
+
+    <script src="components/viewRentRequests/viewRentRequest.component.js"></script>
+    <script src="components/requestForm/requestForm.component.js"></script>
+    <script src="components/logout/logout.component.js"></script>
+    <script src="components/userDashboard/userDashboard.component.js"></script>
+    <script src="views/rentablesFilter/rentablesFilter.component.js"></script>
+
+
+    <!--Views-->
+    <script src="views/adminDashboard/adminDashboard.component.js"></script>
+    <script src="views/ownerDashboard/ownerDashboard.component.js"></script>
+
+    <!-- Partials -->
+    <script src="views/partials/footer/footer.component.js"></script>
+    <script src="views/partials/header/header.component.js"></script>
+    <script src="views/partials/sideNav/sidebar-nav.component.js"></script>
+
+</body>
+
+</html>

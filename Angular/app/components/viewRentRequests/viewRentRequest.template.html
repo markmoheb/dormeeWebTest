@@ -1,0 +1,30 @@
+<div layout="column" flex="60">
+    <br/>
+    <h1>View Rent Request</h1>
+    <div ng-repeat=" rentRequest in $ctrl.list">
+        <md-card md-theme="default" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{'Request for '+ rentRequest.rentable_id.rentable_type}}</span>
+                    <span class="md-subhead">{{'Address: '+ rentRequest.rentable_id.address}}</span>
+                    <span class="md-subhead">{{'Rent Price : '+ rentRequest.rentable_id.rent_price}}</span>
+                    <span class="md-subhead">{{'Date of Request: '+ rentRequest.request_date}}</span>
+                    <span class="md-subhead">{{'Duration: '+ rentRequest.duration}}</span>
+                    <span class="md-subhead">{{'Vacant: '+ rentRequest.rentable_id.vacant}}</span>
+                    <span class="md-subhead">{{'Status: '+ rentRequest.status}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media">
+                        <div ng-show="rentRequest.rentable_id.photo_path"><img ng-src="{{$ctrl.apiUrl}}/{{rentRequest.rentable_id.photo_path}}"></div>
+                        <div ng-show="!rentRequest.rentable_id.photo_path"> <img src="http://www.hotel-r.net/im/hotel/by/egyptian-apartment.jpg"></div>
+
+                    </div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-disabled="rentRequest.status !== 'Accepted'" class="md-raised md-primary" ng-click="$ctrl.pay(rentRequest.status, rentRequest._id, rentRequest.rentable_id.rent_price, rentRequest.duration, rentRequest.rentable_id.vacant)">Pay</md-button>
+                <md-button ng-click="$ctrl.cancel(rentRequest._id)">Cancel</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
