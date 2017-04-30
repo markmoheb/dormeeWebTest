@@ -24,11 +24,20 @@
                 <label>Pinpoint your rentable's location</label>
                 <br/>
                 <!--<div flex="90" layout="row" layout-align="center center">-->
-                    <ng-map id="map" zoom="8" center="[{{$ctrl.lat}},{{$ctrl.lon}}]">
-                        <marker position="[{{$ctrl.lat}},{{$ctrl.lon}}]" title="drag me" draggable="true" on-dragend="$ctrl.markerMove()"></marker>
-                    </ng-map>
+                <ng-map id="map" zoom="8" center="[{{$ctrl.lat}},{{$ctrl.lon}}]">
+                    <marker position="[{{$ctrl.lat}},{{$ctrl.lon}}]" title="drag me" draggable="true" on-dragend="$ctrl.markerMove()"></marker>
+                </ng-map>
                 <!--</div>-->
+                <br/>
 
+                <md-input-container class="md-block">
+                    <label>Address</label>
+                    <input required name="address" ng-model="$ctrl.address">
+                    <div ng-messages="rentableForm.address.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                
                 <md-input-container class="md-block">
                     <label>District</label>
                     <input required name="district" ng-model="$ctrl.district">

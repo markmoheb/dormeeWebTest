@@ -2,18 +2,17 @@ app = angular.module('dormeeApp');
 
 app.component('getOwnerRentables', {
     templateUrl: 'components/getOwnerRentables/getOwnerRentables.template.html',
-    controller: function(env, $http) {
+    controller: function(env, $http, $mdToast) {
         let self = this;
 
-         	self.showToast = function(message) {
-			$mdToast.show(
-				$mdToast.simple()
-				.textContent(message)
-				.hideDelay(3000)
-				.position('top right')
-			);
-		};
-
+        self.showToast = function(message) {
+            $mdToast.show(
+                $mdToast.simple()
+                .textContent(message)
+                .hideDelay(3000)
+                .position('top right')
+            );
+        };
 
         self.ownerApartments = function() {
             $http({
@@ -32,7 +31,7 @@ app.component('getOwnerRentables', {
                 url: env.apiUrl + '/rentables/ownerRooms',
             }).then(function(response) {
                 self.rooms = response.data;
-                 self.showToast('response.data');
+                self.showToast('response.data');
             });
         };
 
@@ -47,7 +46,7 @@ app.component('getOwnerRentables', {
                 method: 'DELETE',
                 url: url,
             }).then((response) => {
-            self.showToast('The room is DELETED');
+                self.showToast('The room is DELETED');
                 self.ownerApartments();
             });
         };

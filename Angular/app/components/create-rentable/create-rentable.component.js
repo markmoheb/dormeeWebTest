@@ -137,6 +137,7 @@ app.component('createRentable', {
                  self.showToast('Your Rentable is successfully created');
                 $state.go('rentables');
             }, function(err) {
+                console.log(err);
                 self.showToast(err.data.error);
                 if (err.data) {
                     if (err.data.error.indexOf('No file') > -1) {
