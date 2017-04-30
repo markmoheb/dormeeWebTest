@@ -31,6 +31,7 @@ app.component('getOwnerRentRequests', {
                 }).then(function(successCallback) {
                     self.getRequests();
                     self.showToast('The request is accepted');
+                    $state.go('userDashboard');
                 }, function(errorCallback) {
                     self.showToast(errorCallback.data); // check it
                 });

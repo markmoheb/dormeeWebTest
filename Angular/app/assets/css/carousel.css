@@ -18,7 +18,7 @@
 /* Carousel base class */
 
 .carousel {
-  margin-bottom: 4rem;
+  /*margin-bottom: 4rem;*/
 }
 
 
@@ -26,15 +26,16 @@
 
 .carousel-caption {
   z-index: 10;
-  bottom: 3rem;
+  /*bottom: 3rem;*/
 }
 
 
 /* Declare heights because of positioning of img element */
 
 .carousel-item {
-  height: 32rem;
-  background-color: #777;
+  /*height: 32rem;*/
+  height: 85%;
+  background-color: #fff;
 }
 
 .carousel-item>img {

@@ -152,9 +152,18 @@ let rentableSchema = mongoose.Schema({
     type: String,
     enum: ['true', 'false'],
   },
+  latitude: {
+    type: Number,
+    required: true
+  },
+  longitude: {
+    type: Number,
+    required: true
+  },
 });
 
 rentableSchema.index({'$**': 'text'});
+
 let Rentable = module.exports = mongoose.model('Rentable', rentableSchema);
 
 // Create

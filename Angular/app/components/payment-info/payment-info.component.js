@@ -17,7 +17,7 @@ angular.module('dormeeApp').
             this.getUser = () => {
                 $http({
                     method: 'GET',
-                    url: env.apiUrl + '/profile',
+                    url: env.apiUrl + '/users/profile',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -27,15 +27,11 @@ angular.module('dormeeApp').
                         this.payment = true;
                     else
                         this.noPayment = true;
-
-                    console.log(this);
-                    console.log(response.data);
                 });
             };
 
             this.addPaymentInfo = () => {
                 let url = env.apiUrl + '/owners/addPaymentInfo';
-                console.log(this.user);
 
                 $http({
                     method: 'PUT',
@@ -47,7 +43,6 @@ angular.module('dormeeApp').
                 }).then((response) => {
                     self.showToast('User payment updated!');
                     $state.go('ownerDashboard');
-                    console.log(response.data);
                 });
             };
         },

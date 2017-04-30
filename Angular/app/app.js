@@ -6,7 +6,7 @@ if (window) {
 }
 
 let app = angular.module('dormeeApp', ['ui.router.grant', 'angular-jwt', 'ui.router', 'ngMaterial', 'ngFileUpload', 'ngMessages', 'rzModule', 'oc.lazyLoad',
-    'ncy-angular-breadcrumb', 'angular-loading-bar',
+    'ncy-angular-breadcrumb', 'angular-loading-bar', 'ngMap'
 ]);
 
 app.config(['$httpProvider', 'jwtOptionsProvider', 'cfpLoadingBarProvider', '$mdAriaProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdAriaProvider',
@@ -216,6 +216,17 @@ app.config(['$httpProvider', 'jwtOptionsProvider', 'cfpLoadingBarProvider', '$md
                 },
             },
         };
+
+         const viewTransactions = {
+            name: 'viewTransactions',
+            url: '/student/transactions/view',
+            template: '<view-transactions></view-transactions>',
+            resolve: {
+                user: function(grant) {
+                    return grant.only({test: 'student', state: '401'});
+                },
+            },
+        };
         const requestForm = {
             name: 'requestForm',
             url: '/student/rent_request/reserve/:id',
@@ -272,6 +283,7 @@ app.config(['$httpProvider', 'jwtOptionsProvider', 'cfpLoadingBarProvider', '$md
 
         $stateProvider.state(home);
         $stateProvider.state(viewRentRequest);
+        $stateProvider.state(viewTransactions);
         $stateProvider.state(requestForm);
         $stateProvider.state(rentables);
         $stateProvider.state(createRentable);
@@ -304,7 +316,9 @@ app.constant('env', enviromentVariables);
 
 app.run(['env', '$http', '$rootScope', '$state', '$stateParams', 'authManager', 'grant', 'roleServie',
     function(env, $http, $rootScope, $state, $stateParams, authManager, grant, roleServie) {
+
         authManager.checkAuthOnRefresh();
+        
         grant.addTest('visitor', function() {
             return roleServie.isVisitor();
         });

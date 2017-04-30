@@ -37,7 +37,6 @@ angular.module('dormeeApp').
                     },
                 }).then((response) => {
                     self.rentables = response.data;
-                    console.log(response.data);
                 });
             };
         },

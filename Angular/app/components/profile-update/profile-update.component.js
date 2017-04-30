@@ -50,13 +50,10 @@ component('profileUpdate', {
                 },
                 data: self.user,
             }).then((response) => {
-                    console.log(response.data);
                     self.showToast('User successfully updated!');
                     $state.go('userDashboard');
                 },
                 (err) => {
-                    // console.log(err);
-
                     if (err.data.error) {
                         if (err.data.error.indexOf('email') > -1) {
                             self.takenEmail = self.user.email;
@@ -64,7 +61,7 @@ component('profileUpdate', {
                             self.error.email = 'Email is already taken, please try another.';
                             self.profileUpdate.email.$error.validationError = true;
                             self.profileUpdate.email.$invalid = true;
-                            console.log(self.error.email);
+                           self.showToast(self.error.email);
                             self.showToast('User updated except for email.');
                         }
 
@@ -74,12 +71,12 @@ component('profileUpdate', {
                             self.error.username = 'Username is already taken, please try another.';
                             self.profileUpdate.username.$error.validationError = true;
                             self.profileUpdate.username.$invalid = true;
-                            console.log(self.error.username);
+                            self.showToast(self.error.username);
                             self.showToast('User updated except for username.');
                         }
                     }
-                    console.log(response.data);
-                    self.showToast('User successfully updated!');
+                    // console.log(response.data);
+                    // self.showToast('User successfully updated!');
                     $state.go('ownerDashboard');
                 },
                 (err) => {
@@ -90,7 +87,7 @@ component('profileUpdate', {
                             self.error.email = 'Email is already taken, please try another.';
                             self.profileUpdate.email.$error.validationError = true;
                             self.profileUpdate.email.$invalid = true;
-                            console.log(self.error.email);
+                            self.showToast(self.error.email);
                         }
 
                         if (err.data.error.indexOf('username') > -1) {
@@ -99,7 +96,7 @@ component('profileUpdate', {
                             self.error.username = 'Username is already taken, please try another.';
                             self.profileUpdate.username.$error.validationError = true;
                             self.profileUpdate.username.$invalid = true;
-                            console.log(self.error.username);
+                           self.showToast(self.error.username);
                         }
                     }
                 }

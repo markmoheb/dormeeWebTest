@@ -124,10 +124,11 @@ module.exports.getStudentRequests = function(query, callback) {
   rentRequest.find(query).populate('rentable_id').exec(callback);
 };
 
-
 // Read
-module.exports.getnAccepted = (state, callback) => {
-    rentRequest.find({
-        status: state,
-    }, callback);
+module.exports.getnAccepted = (query, callback) => {
+    rentRequest.find(query, callback);
+};
+
+module.exports.rejectOtherRequests = (specific, status, callback) => {
+   rentRequest.update(specific, status, callback);
 };

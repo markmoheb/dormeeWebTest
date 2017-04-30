@@ -4,7 +4,6 @@ app.component('userDashboard', {
     templateUrl: 'components/userDashboard/userDashboard.template.html',
     controller: function(env, $http) {
         let self = this;
-
         self.getUser = function() {
             $http({
                 method: 'GET',

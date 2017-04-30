@@ -24,7 +24,6 @@ app.component('requestForm', {
                 self.showToast('Done');
                 $state.go('rentables');
             }, function errorCallback(response) {
-                console.log(response);
                 if (response.data.message)
                     self.showToast(response.data.message);
                 else {

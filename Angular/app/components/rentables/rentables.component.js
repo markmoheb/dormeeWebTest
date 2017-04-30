@@ -15,7 +15,6 @@ app.component('rentables', {
         };
 
         $http(request).then(function(response) {
-            console.log(response.data);
             self.rentables = response.data;
 
             request = {

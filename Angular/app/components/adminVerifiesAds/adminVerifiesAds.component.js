@@ -61,7 +61,6 @@ app.component('adminVerifiesAds', {
                 .position('top right')
             );
         };
-
         self.$onInit = function() {
             self.unverifiedApartments();
             self.unverifiedRooms();

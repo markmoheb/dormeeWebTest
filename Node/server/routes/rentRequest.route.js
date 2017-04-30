@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const rentController = require('../controllers/rentRequestController');
+const passport = require('../../config/passport');
 
 // CRUD =========================================================================
 // Create
@@ -22,6 +23,5 @@ router.delete('/removeRentRequest/:id', rentController.removeRentRequest);
 
 // Other Methods ================================================================
 router.post('/updateRequest', rentController.updateStudentRequest);
-
 
 module.exports = router;

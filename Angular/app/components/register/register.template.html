@@ -1,146 +1,158 @@
 <div class="app flex-row align-items-center">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card mx-4">
-          <div class="card-block p-4">
-            <h1>Register</h1>
-            <p class="text-muted">Create your account</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mx-4">
+                    <div class="card-block p-4">
+                        <h1>Register</h1>
+                        <p class="text-muted">Create your account</p>
 
-            <form name="$ctrl.registerForm" ng-submit="$ctrl.register()">
+                        <form name="$ctrl.registerForm" ng-submit="$ctrl.register()">
 
-              <div layout="row">
-                <!-- First Column -->
-                <div layout="column" flex>
+                            <div layout="row">
+                                <!-- First Column -->
+                                <div layout="column" flex>
 
-                  <!-- First Name -->
-                  <md-input-container class="md-icon-float md-block">
-                    <label>First Name</label>
-                    <md-icon md-font-library="material-icons" class="name">perm_identity</md-icon>
-                    <input required ng-model="$ctrl.data.first_name" class="mdl-textfield__input" type="text" name="first_name" id="first_name">
+                                    <!-- First Name -->
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>First Name</label>
+                                        <md-icon md-font-library="material-icons" class="name">perm_identity</md-icon>
+                                        <input required ng-model="$ctrl.data.first_name" class="mdl-textfield__input" type="text" name="first_name" id="first_name">
 
-                    <div ng-messages="$ctrl.registerForm.first_name.$error" role="alert">
-                      <div ng-message="required"> First name is required</div>
+                                        <div ng-messages="$ctrl.registerForm.first_name.$error" role="alert">
+                                            <div ng-message="required"> First name is required</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>User Name</label>
+                                        <md-icon md-font-library="material-icons" class="name">account_circle</md-icon>
+                                        <input required ng-model="$ctrl.data.username" class="mdl-textfield__input" type="text" name="username" id="username">
+
+                                        <div ng-messages="$ctrl.registerForm.username.$error" role="alert">
+                                            <div ng-message="required"> username is required</div>
+                                        </div>
+                                    </md-input-container>
+
+                                </div>
+
+                                <!-- Second Column -->
+                                <div layout="column" flex>
+
+                                    <!-- Last Name -->
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>Last Name</label>
+                                        <input ng-model="$ctrl.data.last_name" class="mdl-textfield__input" type="text" name="last_name" id="last_name">
+                                    </md-input-container>
+
+                                </div>
+                            </div>
+
+                            <div layout="row">
+                                <!-- First Column -->
+                                <div layout="column" flex>
+
+                                    <!-- Email -->
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>Email</label>
+                                        <md-icon md-font-library="material-icons" class="name">email</md-icon>
+                                        <input required ng-model="$ctrl.data.email" class="mdl-textfield__input" type="text" name="email" id="email" ng-pattern="/^.+@.+\..+$/">
+
+                                        <div ng-messages="$ctrl.registerForm.email.$error" role="alert">
+                                            <div ng-message-exp="['required','pattern']">A valid email is required</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <!-- Phone -->
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>Phone Number</label>
+                                        <md-icon md-font-library="material-icons" class="name">call</md-icon>
+                                        <input required ng-model="$ctrl.data.phone_number" class="mdl-textfield__input" type="text" name="phone_number" id="phone_number" ng-pattern="/^(01)[0-9]{9}/">
+                                        <div ng-messages="$ctrl.registerForm.phone_number.$error" role="alert">
+                                            <div ng-message-exp="['required','pattern']">A valid mobile number is required</div>
+                                        </div>
+                                    </md-input-container>
+
+                                </div>
+
+                                <!-- Second Column -->
+                                <div layout="column" flex>
+
+                                    <!-- Birthdate -->
+                                    <md-input-container>
+                                        <label>Date of Birth</label>
+                                        <md-datepicker ng-model="$ctrl.data.birthdate" name="dateField"></md-datepicker>
+                                        <div ng-messages="myForm.dateField.$error">
+                                            <div ng-message="valid">The entered value is not a date!</div>
+                                            <div ng-message="required">This date is required!</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <!-- Gender -->
+                                    <md-input-container class="md-icon-float md-block">
+
+                                        <md-radio-group ng-model="$ctrl.data.gender" layout="row" layout-align="space-around center">
+                                            <p style="text-align: center;">
+                                                <md-icon md-font-library="material-icons" class="name">people</md-icon> Gender<span class="radioValue"></span> </p>
+                                            <md-radio-button value="Female"> Female </md-radio-button>
+                                            <md-radio-button value="Male">Male</md-radio-button>
+
+                                        </md-radio-group>
+                                    </md-input-container>
+
+                                </div>
+                            </div>
+
+                            <div layout="row">
+                                <!-- First Column -->
+                                <div layout="column" flex>
+
+                                    <!-- Password -->
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>Password</label>
+                                        <md-icon md-font-library="material-icons" class="name">lock</md-icon>
+                                        <input required ng-model="$ctrl.data.password" class="mdl-textfield__input" type="password" name="password" id="password">
+
+                                        <div ng-messages="$ctrl.registerForm.password.$error" role="alert">
+                                            <div ng-message="required"> Password is required</div>
+                                        </div>
+                                    </md-input-container>
+
+                                </div>
+
+                                <!-- Second Column -->
+                                <div layout="column" flex>
+                                    <!-- Confirm Password -->
+                                    <md-input-container class="md-icon-float md-block">
+                                        <label>Confirm Password</label>
+                                        <input required ng-model="$ctrl.data.password2" class="mdl-textfield__input" type="password" name="password2" id="password2">
+
+                                        <div ng-messages="$ctrl.registerForm.password2.$error" role="alert">
+                                            <div ng-message="required">Re-type your password</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+
+                            <md-button type="submit" class="md-primary md-raised btn-block" ng-disabled="$ctrl.registerForm.$invalid">Create Account</md-button>
+
+                        </form>
+                        <div style="text-align: right"> already a user ? <a ui-sref='login'>login</a>
+                        </div>
                     </div>
-                  </md-input-container>
-
-                  <!-- Email -->
-                  <md-input-container class="md-icon-float md-block">
-                    <label>Email</label>
-                    <md-icon md-font-library="material-icons" class="name">email</md-icon>
-                    <input required ng-model="$ctrl.data.email" class="mdl-textfield__input" type="text" name="email" id="email" ng-pattern="/^.+@.+\..+$/">
-
-                    <div ng-messages="$ctrl.registerForm.email.$error" role="alert">
-                      <div ng-message-exp="['required','pattern']">A valid email is required</div>
+                    </md-input-container>
+                    <div class="card-footer p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <button disabled class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+                            </div>
+                            <div class="col-6">
+                                <button disabled class="btn btn-block btn-google-plus" type="button"><span>Google+</span></button>
+                            </div>
+                        </div>
                     </div>
-                  </md-input-container>
-
-                  <!-- Phone -->
-                  <md-input-container class="md-icon-float md-block">
-                    <label>Phone Number</label>
-                    <md-icon md-font-library="material-icons" class="name">call</md-icon>
-                    <input required ng-model="$ctrl.data.phone_number" class="mdl-textfield__input" type="text" name="phone_number" id="phone_number"
-                      ng-pattern="/^(01)[0-9]{9}/">
-                    <div ng-messages="$ctrl.registerForm.phone_number.$error" role="alert">
-                      <div ng-message-exp="['required','pattern']">A valid mobile number is required</div>
-                    </div>
-                  </md-input-container>
-
                 </div>
-
-                <!-- Second Column -->
-                <div layout="column" flex>
-
-                  <!-- Last Name -->
-                  <md-input-container class="md-icon-float md-block">
-                    <label>Last Name</label>
-                    <input ng-model="$ctrl.data.last_name" class="mdl-textfield__input" type="text" name="last_name" id="last_name">
-                  </md-input-container>
-
-                  <!-- Birthdate -->
-                  <md-input-container>
-                    <label>Enter date</label>
-                    <md-datepicker ng-model="$ctrl.data.birthdate" name="dateField"></md-datepicker>
-                    <div ng-messages="myForm.dateField.$error">
-                      <div ng-message="valid">The entered value is not a date!</div>
-                      <div ng-message="required">This date is required!</div>
-                    </div>
-                  </md-input-container>
-
-                  <!-- Gender -->
-                  <md-input-container class="md-icon-float md-block">
-
-                    <md-radio-group ng-model="$ctrl.data.gender" layout="row" layout-align="space-around center">
-                      <p style="text-align: center;">
-                        <md-icon md-font-library="material-icons" class="name">people</md-icon> Gender<span class="radioValue"></span> </p>
-                      <md-radio-button value="Female"> Female </md-radio-button>
-                      <md-radio-button value="Male">Male</md-radio-button>
-
-                    </md-radio-group>
-                  </md-input-container>
-                </div>
-              </div>
-
-              <md-input-container class="md-icon-float md-block">
-                <label>User Name</label>
-                <md-icon md-font-library="material-icons" class="name">account_circle</md-icon>
-                <input required ng-model="$ctrl.data.username" class="mdl-textfield__input" type="text" name="username" id="username">
-
-                <div ng-messages="$ctrl.registerForm.username.$error" role="alert">
-                  <div ng-message="required"> username is required</div>
-                </div>
-              </md-input-container>
-
-              <div layout="row">
-                <!-- First Column -->
-                <div layout="column" flex>
-
-                  <!-- Password -->
-                  <md-input-container class="md-icon-float md-block">
-                    <label>Password</label>
-                    <md-icon md-font-library="material-icons" class="name">lock</md-icon>
-                    <input required ng-model="$ctrl.data.password" class="mdl-textfield__input" type="password" name="password" id="password">
-
-                    <div ng-messages="$ctrl.registerForm.password.$error" role="alert">
-                      <div ng-message="required"> Password is required</div>
-                    </div>
-                  </md-input-container>
-
-                </div>
-
-                <!-- Second Column -->
-                <div layout="column" flex>
-                  <!-- Confirm Password -->
-                  <md-input-container class="md-icon-float md-block">
-                    <label>Confirm Password</label>
-                    <input required ng-model="$ctrl.data.password2" class="mdl-textfield__input" type="password" name="password2" id="password2">
-
-                    <div ng-messages="$ctrl.registerForm.password2.$error" role="alert">
-                      <div ng-message="required">Re-type your password</div>
-                    </div>
-                  </md-input-container>
-                </div>
-              </div>
-
-              <md-button type="submit" class="md-primary md-raised btn-block" ng-disabled="$ctrl.registerForm.$invalid">Create Account</md-button>
-
-            </form>
-            <div style="text-align: right"> already a user ? <a ui-sref='login'>login</a>
             </div>
-          </div>
-          </md-input-container>
-          <div class="card-footer p-4">
-            <div class="row">
-              <div class="col-6">
-                <button disabled class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-              </div>
-              <div class="col-6">
-                <button disabled class="btn btn-block btn-google-plus" type="button"><span>Google+</span></button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

@@ -1,0 +1,28 @@
+<!--?xml version="1.0" standalone="no"?--><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="282.000000pt" viewBox="0 0 300.000000 282.000000" preserveAspectRatio="xMidYMid meet">
+<metadata>
+  <rdf:rdf xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <rdf:description dc:title="stairs half" dc:publisher="Hiox" dc:date="2015-04-04" dc:format="image/svg+xml" dc:language="en">
+      <dc:creator>
+        <rdf:bag>
+          <rdf:li>svgimages.com</rdf:li>
+        </rdf:bag>
+      </dc:creator>
+    </rdf:description>
+  </rdf:rdf>
+</metadata>
+<g transform="translate(0.000000,282.000000) scale(0.100000,-0.100000)" fill="#242021" stroke="none">
+<path class="node" id="node1" d="M1925 2676 c-57 -18 -113 -48 -171 -93 -28 -21 -330 -292 -670 -603
+-341 -311 -665 -607 -721 -658 -79 -71 -108 -106 -132 -154 -47 -94 -45 -98
+43 -98 72 0 74 1 84 28 6 15 17 36 26 47 14 18 15 -26 16 -498 l0 -518 58 3
+57 3 -4 560 -4 560 663 603 c365 331 667 602 671 602 5 0 9 -229 9 -510 l0
+-510 -250 0 -250 0 0 -165 0 -165 725 0 725 0 0 160 0 160 -415 0 -415 0 0 55
+0 55 415 0 415 0 0 165 0 165 -420 0 -420 0 2 328 3 327 22 3 c17 2 26 -3 32
+-21 9 -24 10 -24 78 -13 46 8 69 16 71 26 1 9 -10 40 -25 70 -44 87 -121 117
+-218 86z"></path>
+<path class="node" id="node2" d="M900 840 l0 -160 950 0 950 0 0 160 0 160 -950 0 -950 0 0 -160z"></path>
+<path class="node" id="node3" d="M620 350 l0 -220 1090 0 1090 0 0 220 0 220 -1090 0 -1090 0 0 -220z"></path>
+</g>
+<g transform="translate(0.000000,282.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
+
+</g>
+</svg>

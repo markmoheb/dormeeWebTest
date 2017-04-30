@@ -2,7 +2,7 @@ app = angular.module('dormeeApp');
 
 app.component('login', {
     templateUrl: 'components/login/login.template.html',
-    controller: function(env, $http, $mdToast, $state) {
+    controller: function(env, $http, $mdToast, $state, authManager) {
         let self = this;
 
         self.logIn = () => {
@@ -18,6 +18,7 @@ app.component('login', {
                     self.showToast(successCallback.data.message);
                 } else {
                     self.showToast('You have been logged in !'); // check it
+                    authManager.authenticate();
                     localStorage.setItem('JWT', successCallback.data.JWT);
                     $state.go('home', {}, {reload: true});
                 }

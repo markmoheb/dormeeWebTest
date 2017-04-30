@@ -1,18 +1,20 @@
 <div ng-init="$ctrl.getRequests()">
-<div ng-repeat=" request in $ctrl.requests">
-   <md-card md-theme="default" md-theme-watch>
-       <md-card-title>
-           <md-card-title-text>
-               <span class="md-headline">Request status:{{request.status}}</span>
-               <span class="md-headline">Request time and date:{{request.request_date}}</span>
-               <span class="md-headline">Request duration:{{request.duration}}</span>
-           </md-card-title-text>
+    <div layout="column" flex="60">
+        <div ng-repeat=" request in $ctrl.requests">
+            <md-card md-theme="default" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Request status:{{request.status}}</span>
+                        <span class="md-headline">Request time and date:{{request.request_date}}</span>
+                        <span class="md-headline">Request duration:{{request.duration}}</span>
+                    </md-card-title-text>
 
-       </md-card-title>
-       <md-card-actions layout="row" layout-align="end center">
-           <md-button ng-modeclass="md-raised md-primary" ng-click="$ctrl.accept(request._id)">Accept</md-button>
-           <md-button ng-click="$ctrl.reject(request._id)" class="md-warn">Reject</md-button>
-       </md-card-actions>
-   </md-card>
-</div>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-modeclass="md-raised md-primary" ng-click="$ctrl.accept(request._id)">Accept</md-button>
+                    <md-button ng-click="$ctrl.reject(request._id)" class="md-warn">Reject</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
 </div>

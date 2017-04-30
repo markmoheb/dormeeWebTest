@@ -19,8 +19,20 @@ app.directive('fileModel', ['$parse', function($parse) {
 
 app.component('updateRentable', {
     templateUrl: 'components/update-rentable/update-rentable.template.html',
-    controller: function(env, $http, $stateParams, $state) {
+
+  controller: function(env, $http, $stateParams, $state, NgMap) {
         let self = this;
+
+        NgMap.getMap().then(function(map) {
+            console.log(map.getCenter());
+            console.log('markers', map.markers);
+            console.log('shapes', map.shapes);
+
+            self.markerMove = function(e) {
+                self.lat = map.markers[0].getPosition().lat();
+                self.lon = map.markers[0].getPosition().lng();
+            };
+        });
 
         // Amenities checkboxes
         self.items = ['Furniture', 'Air conditioner', 'Cooker', 'Heater', 'Washer',
@@ -68,7 +80,6 @@ app.component('updateRentable', {
             };
 
             $http(getRequest).then(function(response) {
-                console.log(response.data);
                 self.rentable = response.data;
 
                 self.rentable_type = self.rentable.rentable_type;
@@ -81,6 +92,8 @@ app.component('updateRentable', {
                 self.number_of_rooms = self.rentable.number_of_rooms;
                 self.number_of_bathrooms = self.rentable.number_of_bathrooms;
                 self.summary = self.rentable.summary;
+                self.lat = self.rentable.latitude;
+                self.lon = self.rentable.longitude;
 
                 if (self.rentable.amenities.furnished == 'true') self.toggle('Furniture', self.selected);
                 if (self.rentable.amenities.air_conditioning == 'true') self.toggle('Air conditioner', self.selected);
@@ -134,6 +147,8 @@ app.component('updateRentable', {
             if (self.number_of_rooms) fd.append('number_of_rooms', self.number_of_rooms);
             if (self.number_of_bathrooms) fd.append('number_of_bathrooms', self.number_of_bathrooms);
             if (self.summary) fd.append('summary', self.summary);
+            if (self.lat) fd.append('latitude', self.lat);
+            if (self.lat) fd.append('longitude', self.lon);
 
             let request = {
                 method: 'PUT',
@@ -146,8 +161,7 @@ app.component('updateRentable', {
             };
 
             $http(request).then(function(response) {
-                console.log(response.data);
-                $state.go('rentablesFilter');
+                $state.go('ownerRentables');
             });
         };
     },

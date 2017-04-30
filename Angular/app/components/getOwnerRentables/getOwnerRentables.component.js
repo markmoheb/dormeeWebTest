@@ -5,13 +5,23 @@ app.component('getOwnerRentables', {
     controller: function(env, $http) {
         let self = this;
 
+         	self.showToast = function(message) {
+			$mdToast.show(
+				$mdToast.simple()
+				.textContent(message)
+				.hideDelay(3000)
+				.position('top right')
+			);
+		};
+
+
         self.ownerApartments = function() {
             $http({
                 method: 'GET',
                 url: env.apiUrl + '/rentables/ownerApartments',
             }).then(function(response) {
                 self.apartments = response.data;
-                console.log(response.data);
+                self.showToast('response.data');
             });
         };
 
@@ -22,7 +32,7 @@ app.component('getOwnerRentables', {
                 url: env.apiUrl + '/rentables/ownerRooms',
             }).then(function(response) {
                 self.rooms = response.data;
-                console.log(response.data);
+                 self.showToast('response.data');
             });
         };
 
@@ -37,7 +47,7 @@ app.component('getOwnerRentables', {
                 method: 'DELETE',
                 url: url,
             }).then((response) => {
-                console.log('DELETED');
+            self.showToast('The room is DELETED');
                 self.ownerApartments();
             });
         };
@@ -49,7 +59,7 @@ app.component('getOwnerRentables', {
                 method: 'DELETE',
                 url: url,
             }).then((response) => {
-                console.log('DELETED');
+                self.showToast('The room is DELETED');
                 self.ownerRooms();
             });
         };

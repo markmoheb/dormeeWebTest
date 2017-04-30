@@ -13,7 +13,6 @@ router.get('/', userController.getAllUsers);
 router.get('/count', userController.getUserCount);
 router.get('/profile', passport.authenticate, passport.hasUserAccess, userController.getUserProfile);
 router.get('/verify', passport.authenticate, passport.hasAdminAccess, userController.getVerificationRequests);
-router.get('/profile', userController.getUserProfile);
 router.get('/:id', userController.getUser);
 
 // Update

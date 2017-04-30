@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--<link rel="stylesheet" href="assets/css/app.css">-->
     <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBRs_wc4L3nNVLTmugz-dDeyvj7DyAbccs'></script>
 </head>
 
 <body class="app header-fixed {{isAuthenticated?'sidebar-fixed':''}} footer-fixed animated fadeIn">
@@ -52,6 +53,9 @@
     <!--Stripe-->
     <script src="https://checkout.stripe.com/checkout.js"></script>
 
+    <!-- Maps -->
+    <script src="bower_components/ngmap/build/scripts/ng-map.no-dependency.js"></script>
+
     <!--Components-->
     <script src="components/verifyList/verifyList.component.js"></script>
     <script src="components/verifyRequestOwner/verifyOwner.component.js"></script>
@@ -69,6 +73,7 @@
     <script src="components/getOwnerRentables/getOwnerRentables.component.js"></script>
     <script src="components/adminDeletesAds/adminDeletesAds.component.js"></script>
     <script src="components/adminVerifiesAds/adminVerifiesAds.component.js"></script>
+    <script src="components/viewTransactions/viewTransactions.component.js"></script>
 
     <script src="components/getOwnerRentRequests/getOwnerRentRequests.component.js"></script>
 

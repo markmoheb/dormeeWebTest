@@ -1,0 +1,20 @@
+<div layout="column" flex="60">
+    <br/>
+    <h1>View Transactions</h1>
+    <div ng-repeat=" transaction in $ctrl.list">
+        <md-card md-theme="default" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Transaction details</span>
+                    <span class="md-subhead">{{'Receipt id: '+ transaction.stripe_reciepts_ids[0]}}</span>
+                    <span class="md-subhead">{{'From User : '+ transaction.student.username}}</span>
+                    <span class="md-subhead">{{'To User: '+ transaction.owner.username}}</span>
+                    <span class="md-subhead">{{'Rentable id: '+ transaction.rentRequest.rentable_id}}</span>
+                    <span class="md-subhead">{{'Paid Amount: '+ transaction.amount_paid}}</span>
+                    <span class="md-subhead">{{'Duration: '+ transaction.rentRequest.duration+' month(s)'}}</span>
+                    <span class="md-subhead">{{'Starting Date: '+ transaction.rentRequest.request_date}}</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+</div>

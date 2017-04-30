@@ -1,32 +1,43 @@
-<form name="$ctrl.paymentForm" ng-submit="$ctrl.addPaymentInfo()" ng-init="$ctrl.getUser()">
+<div ng-cloak style="margin-top: 2%; margin-left: 4%">
 
-    <md-content class="md-no-momentum">
+    <div flex="80" style="margin: 2%">
 
-        <md-input-container flex class="md-icon-float md-block">
+        <h3 ng-if="$ctrl.payment">Update Payment Information</h3>
+        <h3 ng-if="$ctrl.noPayment">Add Payment Information</h3>
+        <p>Please enter the account information you wish to receive payment on</p>
+            <br/>
+            <div layout="column" flex="60">
+                <form name="$ctrl.paymentForm" ng-submit="$ctrl.addPaymentInfo()" ng-init="$ctrl.getUser()">
 
-            <label>Account</label>
-            <input required name="account" ng-model="$ctrl.user.payment_info.account">
-            <div ng-messages="$ctrl.paymentForm.account.$error" md-auto-hide="false">
-                <div ng-message="required">Account is required.</div>
+                    <md-content layout-padding class="md-no-momentum">
+
+                        <md-input-container flex class="md-icon-float md-block">
+
+                            <label>Account</label>
+                            <input required name="account" ng-model="$ctrl.user.payment_info.account">
+                            <div ng-messages="$ctrl.paymentForm.account.$error" md-auto-hide="false">
+                                <div ng-message="required">Account is required.</div>
+                            </div>
+
+                        </md-input-container>
+
+                        <md-input-container flex class="md-icon-float md-block">
+
+                            <label>Bank</label>
+                            <input required name="bank" ng-model="$ctrl.user.payment_info.bank">
+                            <div ng-messages="$ctrl.paymentForm.bank.$error" md-auto-hide="false">
+                                <div ng-message="required">Bank is required.</div>
+                            </div>
+
+                        </md-input-container>
+
+                        <div layout="row" layout-align="center center">
+                            <md-button ng-if="$ctrl.payment" class="md-primary md-raised md-button md-ink-ripple" ng-diabled="$ctrl.paymentForm.$invalid" type="submit">UPDATE PAYMENT INFO</md-button>
+                            <md-button ng-if="$ctrl.noPayment" class="md-primary md-raised md-button md-ink-ripple" ng-diabled="$ctrl.paymentForm.$invalid" type="submit">ADD PAYMENT INFO</md-button>
+                        </div>
+                    </md-content>
+
+                </form>
             </div>
-
-        </md-input-container>
-
-        <md-input-container flex class="md-icon-float md-block">
-
-            <label>Bank</label>
-            <input required name="bank" ng-model="$ctrl.user.payment_info.bank">
-            <div ng-messages="$ctrl.paymentForm.bank.$error" md-auto-hide="false">
-                <div ng-message="required">Bank is required.</div>
-            </div>
-
-        </md-input-container>
-
-    </md-content>
-
-    <div>
-        <md-button ng-if="$ctrl.payment" class="md-raised md-warn" ng-diabled="$ctrl.paymentForm.$invalid" type="submit">UPDATE PAYMENT INFO</md-button>
-        <md-button ng-if="$ctrl.noPayment" class="md-raised md-warn" ng-diabled="$ctrl.paymentForm.$invalid" type="submit">ADD PAYMENT INFO</md-button>
     </div>
-
-</form>
+</div>

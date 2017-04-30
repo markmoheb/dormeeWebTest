@@ -1,61 +1,71 @@
-<div layout="column" layout-align="center center" style="min-height: 500px; margin-top: 2%">
-  <div layout="row">
-    <div layout="column" flex="30">
-      <!-- 1st Card -->
-      <div class="card card-inverse">
-        <!-- The Photo -->
-        <div ng-show="$ctrl.rentable.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" ng-src="{{'http://localhost:3000/'+$ctrl.rentable.photo_path}}"></div>
-        <div ng-show="!$ctrl.rentable.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" src="../../assets/images/profile.jpg"></div>
-        <br/>
+<div layout="column" style="margin-top: 4%">
+    <div layout="row">
+        <div layout="column" flex="20">
+            <!-- 1st Card -->
+            <div class="card card-inverse">
+                <!-- The Photo -->
+                <img class=" card-img m-x-auto img-fluid img-circle" ng-src="https://api.adorable.io/avatars/400/{{$ctrl.user.username}}.png">
+                <br/>
 
-        <br/>
-        <div layout="row" layout-align="center center">
-          <!-- username -->
-          <div ng-show="$ctrl.user.username" style="font-size: 26px"><strong>{{$ctrl.user.username}}</strong></div>
+                <br/>
+                <div layout="row" layout-align="center center">
+                    <!-- username -->
+                    <div ng-show="$ctrl.user.username" style="font-size: 26px; color: #000"><strong>{{$ctrl.user.username}}</strong></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div layout="column" flex="3">
-      <div class="card" style="background-color:rgba(0, 0, 0, 0); border: 0">
-        <div class="card-block">
+        <div layout="column" flex="3">
+            <div class="card" style="background-color:rgba(0, 0, 0, 0); border: 0">
+                <div class="card-block">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div layout="column" flex="70">
+        <div layout="column" flex="60">
 
-      <!-- 2nd Card -->
-      <div class="card">
-        <div class="card-block">
-          <h3>General information</h3>
-          <br/>
+            <!-- 2nd Card -->
+            <div class="card">
+                <div class="card-block">
+                    <h3>General information</h3>
+                    <br/>
 
-          <div style="font-size:16px;">
-            <!-- First Name -->
-            <div ng-show="$ctrl.user.first_name"><strong>First Name: </strong>{{$ctrl.user.first_name}}</div>
+                    <div style="font-size:16px;">
+                        <!-- First Name -->
+                        <div ng-show="$ctrl.user.first_name"><strong>First Name: </strong>{{$ctrl.user.first_name}}</div>
 
-            <!-- Last Name -->
-            <div ng-show="$ctrl.user.last_name"><strong>Last Name: </strong>{{$ctrl.user.last_name}}</div>
-            <div ng-show="!$ctrl.user.last_name"><strong>Last Name: </strong> N/A</div>
+                        <!-- Last Name -->
+                        <div ng-show="$ctrl.user.last_name"><strong>Last Name: </strong>{{$ctrl.user.last_name}}</div>
+                        <div ng-show="!$ctrl.user.last_name"><strong>Last Name: </strong> N/A</div>
 
-            <!-- Birthdate -->
-            <div ng-show="$ctrl.user.birthdate"><strong>Birthdate: </strong>{{$ctrl.user.birth_date | date:'yyyy-MM-dd'}}</div>
-            <div ng-show="!$ctrl.user.birthdate"><strong>Birthdate: </strong> N/A</div>
+                        <!-- Birthdate -->
+                        <div ng-show="$ctrl.user.birthdate"><strong>Birthdate: </strong>{{$ctrl.user.birthdate | date:'yyyy-MM-dd'}}</div>
+                        <div ng-show="!$ctrl.user.birthdate"><strong>Birthdate: </strong> N/A</div>
 
-            <!-- Gender -->
-            <div ng-show="$ctrl.user.gender"><strong>Gender: </strong>{{$ctrl.user.gender | date:'yyyy-MM-dd'}}</div>
-            <div ng-show="!$ctrl.user.gender"><strong>Gender: </strong> N/A</div>
+                        <!-- Gender -->
+                        <div ng-show="$ctrl.user.gender"><strong>Gender: </strong>{{$ctrl.user.gender}}</div>
+                        <div ng-show="!$ctrl.user.gender"><strong>Gender: </strong> N/A</div>
 
-            <!-- Phone Number -->
-            <div ng-show="$ctrl.user.phone_number"><strong>Phone Number: </strong>{{$ctrl.user.phone_number}}</div>
-            <div ng-show="!$ctrl.user.phone_number"><strong>Phone Number: </strong> N/A</div>
+                        <!-- Phone Number -->
+                        <div ng-show="$ctrl.user.phone_number"><strong>Phone Number: </strong>{{$ctrl.user.phone_number}}</div>
+                        <div ng-show="!$ctrl.user.phone_number"><strong>Phone Number: </strong> N/A</div>
 
-            <!-- Email -->
-            <div ng-show="$ctrl.user.email"><strong>Email: </strong>{{$ctrl.user.email}}</div>
-            <div ng-show="!$ctrl.user.email"><strong>Email: </strong> N/A</div>
-          </div>
+                        <!-- Email -->
+                        <div ng-show="$ctrl.user.email"><strong>Email: </strong>{{$ctrl.user.email}}</div>
+                        <div ng-show="!$ctrl.user.email"><strong>Email: </strong> N/A</div>
+
+                        <br/>
+                        <div ng-show="$ctrl.user.payment_info.account"><h3>Payment Information</h3></div>
+                        <br/>
+
+                        <!-- Payment Info -->
+                        <div ng-show="$ctrl.user.payment_info.account"><strong>Bank Account: </strong>{{$ctrl.user.payment_info.account}}</div>
+                        <div ng-show="!$ctrl.user.payment_info.account"><strong>Bank Account: </strong> N/A</div>
+
+                        <div ng-show="$ctrl.user.payment_info.bank"><strong>Bank: </strong>{{$ctrl.user.payment_info.bank}}</div>
+                        <div ng-show="!$ctrl.user.payment_info.bank"><strong>Bank: </strong> N/A</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 </div>

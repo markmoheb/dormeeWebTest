@@ -1,8 +1,7 @@
-<div flex="80">
-    <br/>
-    <h1>Rent Request Form</h1>
-    <br/>
-
+<br/>
+<h1>Rent Request Form</h1>
+<br/>
+<div flex="60">
     <div class="card">
         <div class="card-block">
             <form name="$ctrl.requestForm">
@@ -23,12 +22,11 @@
                         <div ng-message="min">Start Date should not be less than current date</div>
                     </div>
                 </md-input-container>
-                
+
                 <md-card-actions layout="row" layout-align="center center">
                     <md-button class="md-raised md-primary" ng-disabled="$ctrl.requestForm.$invalid" ng-click="$ctrl.request()">Send Request</md-button>
                 </md-card-actions>
             </form>
         </div>
-
     </div>
 </div>

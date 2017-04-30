@@ -1,78 +1,76 @@
 <div ng-cloak>
-  <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab label="Apartments">
-      <div style="text-align: right"> <a ui-sref='rentablesFilter'>filter the rentables </a>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Apartments">
+            <div style="text-align: right"> <a ui-sref='rentablesFilter'>filter the rentables </a>
 
-        <div layout="row" layout-wrap>
+                <div layout="row" layout-wrap>
 
-          <md-card class="card" ng-repeat="apartment in $ctrl.apartments" flex="30">
-            <div class="md-media-xl card-media"></div>
+                    <md-card class="card" ng-repeat="apartment in $ctrl.apartments" flex="30">
+                        <div class="md-media-xl card-media"></div>
 
-            <div ng-show="apartment.photo_path">
-              <img ng-src="{{$ctrl.apiUrl}}/{{apartment.photo_path}}" class="md-card-image" alt="photo unavailable" style="width:100%">
-            </div>
-            
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">{{ apartment.district }}</span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="start center">
-              <md-button ng-href="#!/rentable/{{apartment._id}}">
-                <font color="red">View more Details</font>
-              </md-button>
+                        <div ng-show="apartment.photo_path">
+                            <img ng-src="{{$ctrl.apiUrl}}/{{apartment.photo_path}}" class="md-card-image" alt="photo unavailable" style="width:100%">
+                        </div>
+                        <div ng-if="!apartment.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" src="../../assets/images/noimageavailable.png"></div>
 
-              <div ng-if="$root.user === 'student'">
-                <md-button ui-sref="requestForm({ id: apartment._id,})">
-                  <font color="red">Contact Owner</font>
-                </md-button>
-              </div>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{ apartment.district }}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="start center">
+                            <md-button ng-href="#!/rentable/{{apartment._id}}">
+                                <font color="red">View more Details</font>
+                            </md-button>
 
-              <!--<md-button ng-href="#!/rentable/edit/{{apartment._id}}">
+                            <div ng-if="$root.user === 'student'">
+                                <md-button ui-sref="requestForm({ id: apartment._id,})">
+                                    <font color="red">Contact Owner</font>
+                                </md-button>
+                            </div>
+
+                        </md-card-actions>
+                        <md-card-content>
+                            <p>{{ apartment.summary }}</p>
+                        </md-card-content>
+                    </md-card>
+                </div>
+        </md-tab>
+
+        <md-tab label="Rooms">
+            <div class='md-padding' layout="row" layout-wrap>
+
+                <md-card class="card" ng-repeat="room in $ctrl.rooms" flex="30">
+                    <div ng-show="room.photo_path">
+                        <img ng-src="{{$ctrl.apiUrl}}/{{room.photo_path}}" class="md-card-image" alt="photo unavailable" style="width:100%">
+                    </div>
+                    <div ng-if="!room.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" src="../../assets/images/noimageavailable.png"></div>
+
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{ room.district }}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button ng-href="#!/rentable/{{room._id}}">
+                            <font color="red">View more Details</font>
+                        </md-button>
+
+                        <div ng-if="$root.user === 'student' ">
+                            <md-button ui-sref="requestForm({ id: room._id,})">
+                                <font color="red">Contact Owner</font>
+                            </md-button>
+                        </div>
+                        <!--<md-button ng-href="#!/rentable/edit/{{room._id}}">
               <font color="red">Edit</font>
             </md-button>-->
 
-            </md-card-actions>
-            <md-card-content>
-              <p>{{ apartment.summary }}</p>
-            </md-card-content>
-          </md-card>
-        </div>
-    </md-tab>
-
-    <md-tab label="Rooms">
-      <div class='md-padding' layout="row" layout-wrap>
-
-        <md-card class="card" ng-repeat="room in $ctrl.rooms" flex="30">
-          <div ng-show="room.photo_path">
-            <img ng-src="{{$ctrl.apiUrl}}/{{room.photo_path}}" class="md-card-image" alt="photo unavailable" style="width:100%">
-          </div>
-
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">{{ room.district }}</span>
-            </md-card-title-text>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-button ng-href="#!/rentable/{{room._id}}">
-              <font color="red">View more Details</font>
-            </md-button>
-
-            <div ng-if="$root.user === 'student' ">
-              <md-button ui-sref="requestForm({ id: room._id,})">
-                <font color="red">Contact Owner</font>
-              </md-button>
+                    </md-card-actions>
+                    <md-card-content>
+                        <p>{{ room.summary }}</p>
+                    </md-card-content>
+                </md-card>
             </div>
-            <!--<md-button ng-href="#!/rentable/edit/{{room._id}}">
-              <font color="red">Edit</font>
-            </md-button>-->
-
-          </md-card-actions>
-          <md-card-content>
-            <p>{{ room.summary }}</p>
-          </md-card-content>
-        </md-card>
-      </div>
-    </md-tab>
-  </md-tabs>
-  </div>
+        </md-tab>
+    </md-tabs>
+    </div>

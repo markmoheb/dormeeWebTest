@@ -780,7 +780,7 @@ module.exports.getOwnerRentables = function(req, res) {
       if (user.role !== 'owner') res.send('not an owner');
       Rentable.getRentablesByOwnerId(id, function(err, rentables) {
         if (err)
-          res.send(err);
+          res.status(400).json({message: err.message});
         else
           res.json(rentables);
       });

@@ -11,18 +11,16 @@ component('search', {
             if (self.query && self.query.length > 0)
                 url += 'str=' + self.query;
 
-            console.log(url);
+                $http({
+                    method: 'GET',
+                    url: url,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then((response) => {
+                    self.rentables = response.data;
+                });
+            };
+        },
+    });
 
-            $http({
-                method: 'GET',
-                url: url,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            }).then((response) => {
-                self.rentables = response.data;
-                console.log(response.data);
-            });
-        };
-    },
-});

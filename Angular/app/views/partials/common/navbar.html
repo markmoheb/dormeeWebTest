@@ -1,13 +1,24 @@
 <header class="app-header navbar">
     <md-toolbar class="md-primary">
-        <div class="md-toolbar-tools">
-            <div layout="row" layout-align="center center">
-                <md-button ng-show="isAuthenticated" ng-disabled="{{!isAuthenticated}}" class="md-icon-button sidebar-toggler" aria-label="Settings">
+        <div layout="row" layout-align="space-between center" style="margin-top: 10px">
+
+            <!-- Sidebar Toggle -->
+            <div>
+                <md-button class="md-icon-button sidebar-toggler" ng-diable="!isAuthenticated" ng-hide="!isAuthenticated" aria-label="Settings">
                     <i class="material-icons">menu</i>
                 </md-button>
+            </div>
+
+            <!-- Logo -->
+            <div>
                 <a class="navbar-brand" ui-sref='home'></a>
-                <div ng-if="!isAuthenticated">
-                    <logout></logout>
+            </div>
+
+            <!-- Logout button -->
+            <div>
+                <logout ng-if="isAuthenticated"></logout>
+                <div ng-if="!isAuthenticated" md-colors="{color:'white'}">
+                    <md-button ui-sref='login' role="button">Sign in</md-button>
                 </div>
             </div>
         </div>

@@ -1,39 +1,71 @@
-<dormee-header></dormee-header>
-
-<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-</md-sidenav>
-
 <div ng-init='$ctrl.onInit()'>
 
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">My Information</span>
-                        <!-- <span class="md-subhead">Large</span> -->
-                        <span class="md-subhead"> {{ 'First name: ' + $ctrl.user.first_name }} </span>
-                        <span class="md-subhead"> {{ 'Username: ' + $ctrl.user.username }} </span>
-                        <span class="md-subhead"> {{ 'Email: ' + $ctrl.user.email }} </span>
-                        <span class="md-subhead"> {{ 'Phone number: ' + $ctrl.user.phone_number }} </span>
+    <div layout="column" layout-align="center center" style="min-height: 500px; margin-top: 2%">
+        <div layout="row">
+            <div layout="column" flex="30">
+                <!-- 1st Card -->
+                <div class="card card-inverse">
+                    <!-- The Photo -->
+                    <div ng-show="!$ctrl.rentable.photo_path"><img class=" card-img m-x-auto img-fluid img-circle" ng-src="https://api.adorable.io/avatars/285/{{$ctrl.user.username}}.png"></div>
+                    <br/>
 
-                    </md-card-title-text>
-                    <md-card-title-media>
-                        <div class="md-media-lg card-media"></div>
-                        <!-- <img src="img/profile_female.jpg"> </img> -->
-                        <!-- <md-icon md-svg-icon="img/icons/ic_face_black_48px.svg"></md-icon> -->
-                        <!-- <i class="material-icons">face</i> -->
-                        <!-- <i class="fa fa-user fa-5x" aria-hidden="true"></i> -->
-                    </md-card-title-media>
-                </md-card-title>
+                    <br/>
+                    <div layout="row" layout-align="center center">
+                        <!-- username -->
+                        <div ng-show="$ctrl.user.username" style="font-size: 26px"><strong>{{$ctrl.user.username}}</strong></div>
+                    </div>
+                </div>
+            </div>
+            <div layout="column" flex="3">
+                <div class="card" style="background-color:rgba(0, 0, 0, 0); border: 0">
+                    <div class="card-block">
+                    </div>
+                </div>
+            </div>
+            <div layout="column" flex="70">
 
+                <!-- 2nd Card -->
+                <div class="card">
+                    <div class="card-block">
+                        <h3>General information</h3>
+                        <br/>
 
-            </md-card>
+                        <div style="font-size:16px;">
+                            <!-- First Name -->
+                            <div ng-show="$ctrl.user.first_name"><strong>First Name: </strong>{{$ctrl.user.first_name}}</div>
 
+                            <!-- Last Name -->
+                            <div ng-show="$ctrl.user.last_name"><strong>Last Name: </strong>{{$ctrl.user.last_name}}</div>
+                            <div ng-show="!$ctrl.user.last_name"><strong>Last Name: </strong> N/A</div>
+
+                            <!-- Birthdate -->
+                            <div ng-show="$ctrl.user.birthdate"><strong>Birthdate: </strong>{{$ctrl.user.birthdate | date:'yyyy-MM-dd'}}</div>
+                            <div ng-show="!$ctrl.user.birthdate"><strong>Birthdate: </strong> N/A</div>
+
+                            <!-- Gender -->
+                            <div ng-show="$ctrl.user.gender"><strong>Gender: </strong>{{$ctrl.user.gender}}</div>
+                            <div ng-show="!$ctrl.user.gender"><strong>Gender: </strong> N/A</div>
+
+                            <!-- Phone Number -->
+                            <div ng-show="$ctrl.user.phone_number"><strong>Phone Number: </strong>{{$ctrl.user.phone_number}}</div>
+                            <div ng-show="!$ctrl.user.phone_number"><strong>Phone Number: </strong> N/A</div>
+
+                            <!-- Email -->
+                            <div ng-show="$ctrl.user.email"><strong>Email: </strong>{{$ctrl.user.email}}</div>
+                            <div ng-show="!$ctrl.user.email"><strong>Email: </strong> N/A</div>
+
+                            <!-- Payment Info -->
+                            <div ng-show="$ctrl.user.payment_info.account"><strong>Bank Account: </strong>{{$ctrl.user.payment_info.account}}</div>
+                            <div ng-show="!$ctrl.user.payment_info.account"><strong>Bank Account: </strong> N/A</div>
+
+                            <div ng-show="$ctrl.user.payment_info.bank"><strong>Bank: </strong>{{$ctrl.user.payment_info.bank}}</div>
+                            <div ng-show="!$ctrl.user.payment_info.bank"><strong>Bank: </strong> N/A</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </md-content>
-
-
-
+    </div>
+</div>
 </div>

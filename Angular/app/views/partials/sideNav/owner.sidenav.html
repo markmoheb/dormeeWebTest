@@ -1,26 +1,39 @@
 <ul class="nav">
 
     <li class="divider"></li>
-
-    <li class="nav-item">
-        <a class="nav-link" ui-sref-active="active" ui-sref="ownerDashboard"><i class="fa fa-user" aria-hidden="true"></i> My Dashboard </span></a>
-    </li>
-
     <li class="nav-item nav-dropdown">
-        <a class="nav-link nav-dropdown-toggle" ><i class="fa fa-home" aria-hidden="true"></i> Rentables</a>
+        <a class="nav-link nav-dropdown-toggle"><i class="fa fa-user" aria-hidden="true"></i> My Dashboard </span></a>
+
         <ul class="nav-dropdown-items">
-          <li class="nav-item">
-              <a class="nav-link" ui-sref-active="active" ui-sref="ownerRentables"> My Rentables</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" ui-sref-active="active" ui-sref="createRentable"> Add Rentable</a>
-          </li>
+
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="userDashboard">View Profile</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="profile-update"> Update Profile</a>
+            </li>
+
         </ul>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" ui-sref-active="active" ui-sref="paymentInfo"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>Payment Information</a>
     </li>
+
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle"><i class="fa fa-home" aria-hidden="true"></i> Rentables</a>
+        <ul class="nav-dropdown-items">
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="ownerRentables"> My Rentables</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="createRentable"> Add Rentable</a>
+            </li>
+        </ul>
+    </li>
+
+
     <li class="divider"></li>
 
 

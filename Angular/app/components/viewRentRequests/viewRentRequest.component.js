@@ -57,15 +57,17 @@ app.component('viewRentRequest', {
                     rentPrice = rent_Price * duration;
                     handler.open({
                         name: 'Dormee',
-                        description: 'Pay your rent',
+                        description: 'Find your temporary home!',
                         currency: 'EGP',
                         amount: rentPrice * 100,
-                    });
+                        image: 'http://www.cairohouseegypt.com/images/property/Villa/cairo_house_real_estate_egypt_1133_01.jpg',
+                });
                     window.addEventListener('popstate', function() {
                         handler.close();
                     });
                 }
             };
+
 
         self.cancel =
             function(id) {

@@ -20,8 +20,22 @@ app.directive('fileModel', ['$parse', function($parse) {
 app.component('createRentable', {
     templateUrl: 'components/create-rentable/create-rentable.template.html',
 
-    controller: function(env, $http, $state, $mdToast) {
+    controller: function(env, $http, $state, $mdToast, NgMap) {
         let self = this;
+
+        self.lat = 30.13;
+        self.lon = 31.25;
+
+        NgMap.getMap().then(function(map) {
+          console.log(map.getCenter());
+          console.log('markers', map.markers);
+          console.log('shapes', map.shapes);
+
+            self.markerMove = function(e) {
+              self.lat = map.markers[0].getPosition().lat();
+              self.lon = map.markers[0].getPosition().lng();
+            }
+        });
 
         // Amenities checkboxes
         self.items = ['Furniture', 'Air conditioner', 'Cooker', 'Heater', 'Washer',
@@ -93,6 +107,8 @@ app.component('createRentable', {
             fd.append('amenities.TV', TV);
             fd.append('amenities.parking', parking);
             fd.append('amenities.elevator', elevator);
+            fd.append('latitude', self.lat);
+            fd.append('longitude', self.lon);
 
             if (self.photo) fd.append('photo', self.photo);
             if (self.rentable_type) fd.append('rentable_type', self.rentable_type);
@@ -117,14 +133,13 @@ app.component('createRentable', {
             };
 
             $http(request).then(function(response) {
-                console.log(response.data);
                 self.rentable = response.data;
+                 self.showToast('Your Rentable is successfully created');
                 $state.go('rentables');
             }, function(err) {
-                console.log(err.data.error);
+                self.showToast(err.data.error);
                 if (err.data) {
                     if (err.data.error.indexOf('No file') > -1) {
-                        console.log('true');
                         self.showToast('Please upload a photo.');
                     }
                 }

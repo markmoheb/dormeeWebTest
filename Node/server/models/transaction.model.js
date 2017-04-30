@@ -43,8 +43,7 @@ module.exports.saveTransaction = function(newTransaction, callback) {
 // Read
 
 module.exports.getMyTransactions = function(query, callback) {
-  transaction.find(callback);
-  // transaction.find(query,callback);
+  transaction.find(query).populate('owner').populate('student').populate('rentRequest').exec(callback);
 };
 
 // add stripe id
